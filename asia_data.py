@@ -1,19 +1,11 @@
-import requests
-from bs4 import BeautifulSoup as BS
-import config_file as conf
+import config_file
+from request_module import request
 
-headers = conf.headers_asia
-
-
-def request(url):
-    s = requests.Session()
-    r = s.get(url=url, headers=headers)
-    data = r.text
-    soup = BS(data, "lxml")
-    parsing_data(soup)
+headers = config_file.headers_asia
+html = request(config_file.url_asia, headers)
 
 
-def parsing_data(html):
+def parsing_data():
     all_infected = f' Всього захворіло: {html.find("td", class_="bg-total larger").text}\n'
     deaths = f'Померло: {html.find_all("td", class_="bg-total")[3].text}\n'
     recovered = f'Вилікувались: {html.find_all("td", class_="bg-total")[5].text}\n'
@@ -22,4 +14,4 @@ def parsing_data(html):
 
 
 if __name__ == "__main__":
-    request(url=conf.url_asia)
+    parsing_data()

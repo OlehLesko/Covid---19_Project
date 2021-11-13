@@ -1,5 +1,5 @@
 from tkinter import *
-import config
+import config_file
 
 
 # Creating general window of program

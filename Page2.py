@@ -5,9 +5,9 @@ import config_file
 # Creating general window of program
 def create_general_window():
     first_window = Tk()
-    first_window.geometry(config.first_window_size)
-    first_window.title(config.first_window_title)
-    first_window['bg'] = config.first_window_background
+    first_window.geometry(config_file.first_window_size)
+    first_window.title(config_file.first_window_title)
+    first_window['bg'] = config_file.first_window_background
 
     Text_first_window = Label(first_window,
                               text='Covid-19',

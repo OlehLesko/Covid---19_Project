@@ -6,12 +6,14 @@ headers = config_file.headers_ukraine
 html = request(config_file.url_ukraine, headers)
 
 
+# get list of regions in Ukraine
 def get_region_list():
     region_of_ukraine = html.find("div", class_="compact-table expand-table").find("table").find_all("tr")
     for element in region_of_ukraine[1:-1]:
         print(element.find("a").text)
 
 
+# get information about situation in selected region
 def region_data_ukr():
     input_text = input("Enter text:")
     all_info = html.find_all('table')[1].find_all('td')

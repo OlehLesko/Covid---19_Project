@@ -3,6 +3,8 @@ from request_module import request
 
 headers = config_file.headers_ukraine
 html = request(config_file.url_ukraine, headers)
+
+# general information about coronavirus in Ukraine
 period_of_time = html.find("table", class_="line").find("caption").text
 all_infected = html.find("td", class_="bg-grey larger").text
 all_deaths = html.find_all("td", class_="bg-grey")[3].text
@@ -10,6 +12,7 @@ all_recovered = html.find_all("td", class_="bg-grey")[5].text
 all_now_ill = html.find_all("td", class_="bg-grey")[7].text
 
 
+# show information
 def general_data_ukr(all_infected_people=None, deaths=None,
                      recovered=None, now_ill=None):
     time_period = f' {period_of_time}\n'

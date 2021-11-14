@@ -3,11 +3,17 @@ from request_module import request
 from general_info_ukr import general_data_ukr
 
 headers = config_file.headers_ukraine
+html = request(config_file.url_ukraine, headers)
+
+
+def get_region_list():
+    region_of_ukraine = html.find("div", class_="compact-table expand-table").find("table").find_all("tr")
+    for element in region_of_ukraine[1:-1]:
+        print(element.find("a").text)
 
 
 def region_data_ukr():
     input_text = input("Enter text:")
-    html = request(config_file.url_ukraine, headers)
     all_info = html.find_all('table')[1].find_all('td')
     for i in all_info:
         if i.string == input_text:
@@ -19,4 +25,5 @@ def region_data_ukr():
 
 
 if __name__ == "__main__":
+    get_region_list()
     region_data_ukr()

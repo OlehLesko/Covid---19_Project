@@ -4,7 +4,6 @@ first_window_size = '600x400'
 first_window_title = 'Covid-19'
 first_window_background = 'Blue'
 
-
 # Asia
 headers_asia = {
     'accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,"
@@ -14,6 +13,15 @@ headers_asia = {
 
 url_asia = 'https://index.minfin.com.ua/ua/reference/coronavirus/geography/asia/'
 
+# Asia and europe vaccinated data
+asia_vaccinated = 'https://coronavirus.jhu.edu/vaccines/international'
+headers_asia_vaccinated_data = {
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,'
+              'application/signed-exchange;v=b3;q=0.9',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/95.0.4638.69 '
+                  'Safari/537.36 '
+}
 
 # Ukraine
 headers_ukraine = {
@@ -24,4 +32,4 @@ headers_ukraine = {
 
 url_ukraine = 'https://index.minfin.com.ua/ua/reference/coronavirus/ukraine/'
 
-
+url_ukraine_vactinated = 'https://index.minfin.com.ua/ua/reference/coronavirus/vaccination/ukraine/'

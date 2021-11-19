@@ -14,14 +14,15 @@ all_now_ill = html.find_all("td", class_="bg-grey")[7].text
 
 # show information
 def general_data_ukr(all_infected_people=None, deaths=None,
-                     recovered=None, now_ill=None):
+                     recovered=None, now_ill=None, total_vaccinated=None):
     time_period = f' {period_of_time}\n'
-    all_infected_people = f'Всього захворіло: {all_infected_people}\n'
-    deaths = f'Померло: {deaths}\n'
-    recovered = f'Вилікувались: {recovered}\n'
-    now_ill = f'Продовжують хворіти: {now_ill}\n'
+    all_infected_people = f'Infected: {all_infected_people}\n'
+    deaths = f'Deaths: {deaths}\n'
+    recovered = f'Recovered: {recovered}\n'
+    now_ill = f'Now ill: {now_ill}\n'
+    total_vaccinated_region_ukr = f'Total vaccinated people: {total_vaccinated}\n'
     # send information to tkinter
-    print(time_period, all_infected_people, deaths, recovered, now_ill)
+    print(time_period, all_infected_people, deaths, recovered, now_ill,total_vaccinated_region_ukr)
 
 
 if __name__ == "__main__":

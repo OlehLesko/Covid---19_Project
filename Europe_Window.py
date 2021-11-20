@@ -2,9 +2,9 @@ import json
 from tkinter import *
 import tkinter.ttk
 from covid.api import CovId19Data
-from google_trans_new import google_translator
+# from google_trans_new import google_translator
 import openpyxl
-import codecs
+# import codecs
 
 api = CovId19Data(force=True)
 

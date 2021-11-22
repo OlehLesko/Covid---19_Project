@@ -7,8 +7,11 @@ def create_general_window():
     first_window = Tk()
     first_window.geometry(config_file.first_window_size)
     first_window.title(config_file.first_window_title)
-    first_window['bg'] = config_file.first_window_background
+    # first_window['bg'] = config_file.first_window_background
 
+    photo = PhotoImage(file="covid19 title.png")
+    w = Label(first_window, image=photo)
+    w.place(x=10, y=20)
 
     #Labels
     Text_first_window = Label(first_window,

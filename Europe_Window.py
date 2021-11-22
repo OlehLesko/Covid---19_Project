@@ -48,7 +48,7 @@ def insert_Text_Europe(event):
     B7 = Excel_file['B7'] = api.filter_by_country(Get)['deaths']
 
     Getstr1 = Field_Europe.insert(1.0, (
-        f'{A1} — {B1}  \n{A2} — {B2}  \n{A3} — {B3}  \n{A4} — {B4}  \n{A5} — {B5}  \n{A6} — {B6}  \n{A7} — {B7}'))
+        f'Країна : — {B1}  \n{A2} — {B2}  \n{A3} — {B3}  \n{A4} — {B4}  \n{A5} — {B5}  \n{A6} — {B6}  \n{A7} — {B7}'))
 
     book.save("Europe_book.xlsx")
     book.close()

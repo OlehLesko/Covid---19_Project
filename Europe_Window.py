@@ -28,6 +28,7 @@ photo = PhotoImage(file='Imagecovid (1).png')
 canvas.create_image(370, 200, image=photo)
 canvas.create_text(130, 80, text="Select a country:", fill="White",
                    font=('Arial', 23))
+
 canvas.pack()
 
 

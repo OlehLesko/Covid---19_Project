@@ -21,9 +21,8 @@ def create_general_window():
     Label_Phone_Number = Label(first_window,
                                text = 'Гаряча лінія: '
                                       '0 800 60 20 19',
-
                                fg='Black', font=('Arial', 15),
-                               width=70, height=1)
+                               width=70, height=1,anchor='w', justify='left')
 
     Label_Phone_Number.place(x=0, y=0)
 

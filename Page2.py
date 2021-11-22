@@ -24,8 +24,9 @@ def create_general_window():
     Label_Phone_Number = Label(first_window,
                                text = 'Гаряча лінія: '
                                       '0 800 60 20 19',
+
                                fg='Black', font=('Arial', 15),
-                               width=70, height=1,anchor='w', justify='left')
+                               width=70, height=1)
 
     Label_Phone_Number.place(x=0, y=0)
 
@@ -44,6 +45,7 @@ def create_general_window():
                                          font=('Arial', 13),
                                          width=19, height=2)
     Button_Ukraine_first_window.place(x=212, y=220)
+
     Button_Asia_first_window = Button(first_window,
                                       text='Asia',
                                       bg='Black', fg='White',

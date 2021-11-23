@@ -3,6 +3,7 @@ from tkinter import *
 import tkinter.ttk
 from covid.api import CovId19Data
 from get_vaccinated_by_countries_EU import vaccinated
+import config_file
 
 api = CovId19Data(force=True)
 
@@ -36,11 +37,24 @@ def country_from_sorted_list():
 top_10 = country_from_sorted_list()
 
 second_window = Tk()
-second_window.geometry('700x450')
+second_window.geometry(config_file.first_window_size)
 second_window.title('Covid-19 information')
-second_window['bg'] = 'Blue'
+second_window.iconbitmap('Coronavirus-300x300.ico')
 second_window.resizable(width=False, height=False)
 
+
+canvas_width = 1005
+canvas_height = 1000
+canvas = Canvas(second_window,
+                width=canvas_width,
+                height=canvas_height)
+
+photo = PhotoImage(file='Imagecovid (1).png')
+canvas.create_image(370, 200, image=photo)
+canvas.create_text(130, 80, text="Select a country:", fill="White",
+                   font=('Arial', 23))
+
+canvas.pack()
 
 def show_result(event):
     Field_Europe.delete(1.0, END)
@@ -52,24 +66,48 @@ def show_result(event):
         recovered = sorted_dic[get_combobox_country.lower()]["recovered"]
         deaths = sorted_dic[get_combobox_country.lower()]["deaths"]
         total_vaccinated = vaccinated(label)
-        Field_Europe.insert(1.0, (f'Last_updated: {last_updated}\n'
+        Field_Europe.insert(1.0, (f'Country: {label}\n'
+                                  f'Last updated: {last_updated}\n \n'
                                   f'Confirmed: {confirmed}\n'
-                                  f'Country: {label}\n'
+                                  
                                   f'Recovered: {recovered}\n'
-                                  f'Deaths: {deaths}\n'
+                                  f'Deaths: {deaths}\n \n'
                                   f'Total vaccinated: {total_vaccinated}\n'))
 
+        # Field_Europe['state'] = 'disabled'
+        if '<<ComboboxSelected>>':
+            Field_Europe.delete(1.0, END)
+            get_combobox_second = Combobox_Europe_second_window.get()
 
-Text_Europe = Label(second_window, text='Top-10 країн Європи', font=('Arial', 23), bg='Blue', fg='White')
-Text_Europe.place(x=10, y=60)
+            label_second = sorted_dic[get_combobox_second.lower()]["label"]
+            last_updated_second = sorted_dic[get_combobox_second.lower()]["last_updated"]
+
+            confirmed_second = sorted_dic[get_combobox_second.lower()]["confirmed"]
+            recovered_second = sorted_dic[get_combobox_second.lower()]["recovered"]
+            deaths_second = sorted_dic[get_combobox_second.lower()]["deaths"]
+            total_vaccinated_second = vaccinated(label_second)
+
+            Field_Europe.insert(1.0, (f'Country: {label_second}\n'
+                                      f'Last updated: {last_updated_second}\n \n'
+                                      f'Confirmed: {confirmed_second}\n'
+
+                                      f'Recovered: {recovered_second}\n'
+                                      f'Deaths: {deaths_second}\n \n'
+                                      f'Total vaccinated: {total_vaccinated_second}\n'))
+
+
 Combobox_Europe_second_window = tkinter.ttk.Combobox(second_window, values=top_10, width=45, height=11,
                                                      state='readonly')
 Combobox_Europe_second_window['values'] = top_10
 Combobox_Europe_second_window.place(x=14, y=110)
-Button_Europe_second_window = Button(second_window, text='Home', font=('Arial', 14), width=7, height=1)
-Button_Europe_second_window.place(x=5, y=2)
-Field_Europe = Text(second_window, width=40, height=10)
-Field_Europe.place(x=360, y=14)
 Combobox_Europe_second_window.bind('<<ComboboxSelected>>', show_result)
+
+Button_Europe_second_window = Button(second_window, text='<<',
+                                     font=('Arial', 14), width=5, height=1)
+Button_Europe_second_window.place(x=1, y=2)
+
+Field_Europe = Text(second_window, width=40, height=10, bg='Light gray')
+Field_Europe.place(x=360, y=14)
+
 
 second_window.mainloop()

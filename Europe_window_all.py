@@ -36,16 +36,16 @@ def country_from_sorted_list():
 
 top_10 = country_from_sorted_list()
 
-second_window = Tk()
-second_window.geometry(config_file.first_window_size)
-second_window.title('Covid-19 information')
-second_window.iconbitmap('Coronavirus-300x300.ico')
-second_window.resizable(width=False, height=False)
+Europe_window = Tk()
+Europe_window.geometry(config_file.first_window_size)
+Europe_window.title('Covid-19 information')
+Europe_window.iconbitmap('Coronavirus-300x300.ico')
+Europe_window.resizable(width=False, height=False)
 
 
 canvas_width = 1005
 canvas_height = 1000
-canvas = Canvas(second_window,
+canvas = Canvas(Europe_window,
                 width=canvas_width,
                 height=canvas_height)
 
@@ -96,18 +96,18 @@ def show_result(event):
                                       f'Total vaccinated: {total_vaccinated_second}\n'))
 
 
-Combobox_Europe_second_window = tkinter.ttk.Combobox(second_window, values=top_10, width=45, height=11,
+Combobox_Europe_second_window = tkinter.ttk.Combobox(Europe_window, values=top_10, width=45, height=11,
                                                      state='readonly')
 Combobox_Europe_second_window['values'] = top_10
 Combobox_Europe_second_window.place(x=14, y=110)
 Combobox_Europe_second_window.bind('<<ComboboxSelected>>', show_result)
 
-Button_Europe_second_window = Button(second_window, text='<<',
+Button_Europe_second_window = Button(Europe_window, text='<<',
                                      font=('Arial', 14), width=5, height=1)
 Button_Europe_second_window.place(x=1, y=2)
 
-Field_Europe = Text(second_window, width=40, height=10, bg='Light gray')
+Field_Europe = Text(Europe_window, width=40, height=10, bg='Light gray')
 Field_Europe.place(x=360, y=14)
 
 
-second_window.mainloop()
+Europe_window.mainloop()

@@ -2,6 +2,7 @@ import config_file
 from request_module import request
 from tkinter import *
 import tkinter.ttk
+import ukraine_regions_data
 
 headers = config_file.headers_ukraine
 html = request(config_file.url_ukraine, headers)
@@ -19,6 +20,7 @@ all_now_ill = html.find_all("td", class_="bg-grey")[7].text
 def general_data_ukr(all_infected_people=None, deaths=None,
                      recovered=None, now_ill=None, total_vaccinated=None):
 
+    get_Combobox = Combobox_Ukraine_second_window.get()
     time_period = f' {period_of_time}\n'
     all_infected_people = f'Infected: {all_infected_people}\n'
     deaths = f'Deaths: {deaths}\n'
@@ -26,8 +28,8 @@ def general_data_ukr(all_infected_people=None, deaths=None,
     now_ill = f'Now ill: {now_ill}\n'
     total_vaccinated_region_ukr = f'Total vaccinated people: {total_vaccinated}\n'
     # send information to tkinter
-    print(time_period, all_infected_people, deaths, recovered, now_ill,total_vaccinated_region_ukr)
-    Field_Ukraine.insert(1.0,())
+    # print(time_period, all_infected_people, deaths, recovered, now_ill,total_vaccinated_region_ukr)
+    Field_Ukraine.insert(1.0,(get_Combobox))
 
 
 #Crete Window_Ukraine
@@ -52,8 +54,8 @@ canvas.pack()
 
 #Combobox
 Combobox_Ukraine_second_window = tkinter.ttk.Combobox(Window_Ukraine, width=20,
+                                                      values=ukraine_regions_data.get_region_list(),
                                                       height=20,state='readonly')
-# Combobox_Ukraine_second_window['values'] = top_10
 Combobox_Ukraine_second_window.place(x=14, y=140)
 Combobox_Ukraine_second_window.bind('<<ComboboxSelected>>', general_data_ukr)
 

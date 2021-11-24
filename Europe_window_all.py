@@ -1,3 +1,5 @@
+from subprocess import call
+
 from countrygroups import EUROPEAN_UNION as EU_country
 from tkinter import *
 import tkinter.ttk
@@ -102,8 +104,12 @@ Combobox_Europe_second_window['values'] = top_10
 Combobox_Europe_second_window.place(x=14, y=110)
 Combobox_Europe_second_window.bind('<<ComboboxSelected>>', show_result)
 
+def Click2():
+    Europe_window.destroy()
+    call(["python", "First_window.py"])
+
 Button_Europe_second_window = Button(Europe_window, text='<<',
-                                     font=('Arial', 14), width=5, height=1)
+                                     font=('Arial', 14), width=5, height=1, command=Click2)
 Button_Europe_second_window.place(x=1, y=2)
 
 Field_Europe = Text(Europe_window, width=40, height=10, bg='Light gray')

@@ -1,3 +1,5 @@
+from subprocess import call
+
 import config_file
 from request_module import request
 from get_general_vaccinated_data_asia import total_vaccinated
@@ -30,13 +32,14 @@ deaths = f'Deaths: {html.find_all("td", class_="bg-total")[3].text}\n'
 recovered = f'Recovered: {html.find_all("td", class_="bg-total")[5].text}\n'
 now_ill = f'Now ill: {html.find_all("td", class_="bg-total")[7].text}\n'
 total_vaccinated_people = f'Total vaccinated people: {total_vaccinated()}'
-print(all_infected, deaths, recovered, now_ill, total_vaccinated_people)
+
 info_text.insert(1.0, f"\n{all_infected}\n\n {deaths} \n\n {recovered} \n\n {now_ill} \n\n {total_vaccinated_people}")
 info_text['state'] = 'disabled'
 
 
 def click():
-    pass
+    root.destroy()
+    call(["python", "First_window.py"])
 
 
 but = Button(root, text='<<', width=5, height=1, command=click, font=('Arial', 14))

@@ -34,7 +34,7 @@ def create_general_window():
 
     Label_Phone_Number.place(x=0, y=0)
 
-    def Open():
+    def euro_open():
         first_window.destroy()
         call(["python", "Europe_window_all.py"])
 
@@ -42,20 +42,20 @@ def create_general_window():
                                         text='Europe',
                                         bg='White', fg='Black',
                                         font=('Arial', 14),
-                                        width=11, height=2, command=Open)
+                                        width=11, height=2, command=euro_open)
     Button_Europe_first_window.place(x=360, y=240)
 
-    def Open2():
+    def ukraine_open():
         pass
 
     Button_Ukraine_first_window = Button(canvas,
                                          text='Ukraine',
                                          bg='White', fg='Black',
                                          font=('Arial', 14),
-                                         width=11, height=2, command=Open2)
+                                         width=11, height=2, command=ukraine_open)
     Button_Ukraine_first_window.place(x=495, y=240)
 
-    def Open3():
+    def asia_open():
         first_window.destroy()
         call(["python", "asia_data.py"])
 
@@ -63,7 +63,7 @@ def create_general_window():
                                       text='Asia',
                                       bg='White', fg='Black',
                                       font=('Arial', 14),
-                                      width=11, height=2, command=Open3)
+                                      width=11, height=2, command=asia_open)
     Button_Asia_first_window.place(x=630, y=240)
 
     first_window.mainloop()

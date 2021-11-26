@@ -12,17 +12,17 @@ list_region = []
 def get_region_list():
     region_of_ukraine = html.find("div", class_="compact-table expand-table").find("table").find_all("tr")
     for element in region_of_ukraine[1:-1]:
-        print(element.find("a").text)
+        # print(element.find("a").text)
         list_region.append(element.find("a").text)
     return list_region
 
 
 # get data from each region of Ukraine
-def region_data_ukr():
-    input_text = input("Enter text:")
+def region_data_ukr(selected_region):
+    # selected_region = input("Enter text:")
     all_info = html.find_all('table')[1].find_all('td')
     for i in all_info:
-        if i.string == input_text:
+        if i.string == selected_region:
             all_infected = i.parent.find("td", class_="blank larger").text
             all_deaths = i.parent.find_all("td", class_="blank")[2].text
             all_recovered = i.parent.find_all("td", class_="blank")[4].text
@@ -31,8 +31,3 @@ def region_data_ukr():
             general_data_ukr(all_infected, all_deaths, all_recovered, all_now_ill, total_vaccinated)
 
 
-if __name__ == "__main__":
-    region_list_all = get_region_list()
-    region_data_ukr()
-    print(region_list_all)
-    print(region_list_all[2])

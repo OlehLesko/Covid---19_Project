@@ -6,7 +6,7 @@ import config_file
 # Creating general window of program
 def create_general_window():
     first_window = Tk()
-    first_window.iconbitmap('Coronavirus-300x300.ico')
+    first_window.iconbitmap('icon.ico')
 
     canvas_width = 1005
     canvas_height = 1000
@@ -34,7 +34,7 @@ def create_general_window():
 
     def euro_open():
         first_window.destroy()
-        call(["python", "Europe_window_all.py"])
+        call(["python", "Europe_window.py"])
 
     button_europe = Button(canvas,
                            text='Europe',
@@ -56,7 +56,7 @@ def create_general_window():
 
     def asia_open():
         first_window.destroy()
-        call(["python", "asia_data.py"])
+        call(["python", "Asia_window.py"])
 
     button_asia = Button(canvas,
                          text='Asia',

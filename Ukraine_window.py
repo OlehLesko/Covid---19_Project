@@ -29,7 +29,7 @@ for element in ukraine_regions:
 Ukraine_window = Tk()
 Ukraine_window.geometry(config_file.first_window_size)
 Ukraine_window.title('Covid-19 information')
-Ukraine_window.iconbitmap('Coronavirus-300x300.ico')
+Ukraine_window.iconbitmap('icon.ico')
 Ukraine_window.resizable(width=False, height=False)
 
 # create canva window
@@ -38,7 +38,7 @@ canvas_height = 1000
 canvas = Canvas(Ukraine_window,
                 width=canvas_width,
                 height=canvas_height)
-photo = PhotoImage(file='Imagecovid (1).png')
+photo = PhotoImage(file='second_win_image.png')
 
 # transparent text_1
 canvas.create_image(370, 200, image=photo)

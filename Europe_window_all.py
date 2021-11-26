@@ -106,7 +106,7 @@ Combobox_Europe_second_window.bind('<<ComboboxSelected>>', show_result)
 
 def Click2():
     Europe_window.destroy()
-    call(["python", "First_window.py"])
+    call(["python", "Start_App.py"])
 
 Button_Europe_second_window = Button(Europe_window, text='<<',
                                      font=('Arial', 14), width=5, height=1, command=Click2)

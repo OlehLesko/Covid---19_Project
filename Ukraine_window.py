@@ -89,7 +89,7 @@ Combobox_Ukraine_second_window.bind('<<ComboboxSelected>>', show_result)
 # back to the main window
 def return_to_first_window():
     Ukraine_window.destroy()
-    call(["python", "First_window.py"])
+    call(["python", "Start_App.py"])
 
 
 Button_Europe_second_window = Button(Ukraine_window, text='Main',

@@ -39,7 +39,7 @@ info_text['state'] = 'disabled'
 
 def click():
     root.destroy()
-    call(["python", "First_window.py"])
+    call(["python", "Start_App.py"])
 
 
 but = Button(root, text='<<', width=5, height=1, command=click, font=('Arial', 14))

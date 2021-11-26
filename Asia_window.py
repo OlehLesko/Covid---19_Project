@@ -6,7 +6,7 @@ from get_general_vaccinated_data_asia import total_vaccinated
 from tkinter import *
 
 root = Tk()
-root.iconbitmap('Coronavirus-300x300.ico')
+root.iconbitmap('icon.ico')
 
 canvas_width = 1005
 canvas_height = 1000
@@ -17,7 +17,7 @@ canvas.pack()
 root.geometry(config_file.first_window_size)
 root.title('Asia')
 
-photo = PhotoImage(file='Imagecovid (1).png')
+photo = PhotoImage(file='second_win_image.png')
 canvas.create_image(370, 200, image=photo)
 
 canvas.create_text(190, 110, text="The state of\ncovid-19 in Asia", fill="White", font=('Arial', 36))

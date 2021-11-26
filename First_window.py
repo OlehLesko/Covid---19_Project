@@ -1,7 +1,5 @@
 from subprocess import call
 from tkinter import *
-from django.conf.locale import tk
-
 import config_file
 
 
@@ -25,46 +23,47 @@ def create_general_window():
     canvas.create_text(470, 80, text="Covid-19", fill="White", font=('Arial', 42))
     canvas.create_text(515, 180, text="Find out the information:", fill="White", font=('Arial', 20))
 
-    Label_Phone_Number = Label(first_window,
+    label_phone_number = Label(first_window,
                                text='Гаряча лінія: '
                                     '0 800 60 20 19',
 
                                fg='Black', font=('Arial', 14),
                                width=70, height=1, anchor="w", justify="left")
 
-    Label_Phone_Number.place(x=0, y=0)
+    label_phone_number.place(x=0, y=0)
 
     def euro_open():
         first_window.destroy()
         call(["python", "Europe_window_all.py"])
 
-    Button_Europe_first_window = Button(canvas,
-                                        text='Europe',
-                                        bg='White', fg='Black',
-                                        font=('Arial', 14),
-                                        width=11, height=2, command=euro_open)
-    Button_Europe_first_window.place(x=360, y=240)
+    button_europe = Button(canvas,
+                           text='Europe',
+                           bg='White', fg='Black',
+                           font=('Arial', 14),
+                           width=11, height=2, command=euro_open)
+    button_europe.place(x=360, y=240)
 
     def ukraine_open():
-        pass
+        first_window.destroy()
+        call(["python", "Ukraine_window.py"])
 
-    Button_Ukraine_first_window = Button(canvas,
-                                         text='Ukraine',
-                                         bg='White', fg='Black',
-                                         font=('Arial', 14),
-                                         width=11, height=2, command=ukraine_open)
-    Button_Ukraine_first_window.place(x=495, y=240)
+    button_ukraine = Button(canvas,
+                            text='Ukraine',
+                            bg='White', fg='Black',
+                            font=('Arial', 14),
+                            width=11, height=2, command=ukraine_open)
+    button_ukraine.place(x=495, y=240)
 
     def asia_open():
         first_window.destroy()
         call(["python", "asia_data.py"])
 
-    Button_Asia_first_window = Button(canvas,
-                                      text='Asia',
-                                      bg='White', fg='Black',
-                                      font=('Arial', 14),
-                                      width=11, height=2, command=asia_open)
-    Button_Asia_first_window.place(x=630, y=240)
+    button_asia = Button(canvas,
+                         text='Asia',
+                         bg='White', fg='Black',
+                         font=('Arial', 14),
+                         width=11, height=2, command=asia_open)
+    button_asia.place(x=630, y=240)
 
     first_window.mainloop()
 

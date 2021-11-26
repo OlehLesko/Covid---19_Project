@@ -1,7 +1,5 @@
 import config_file
 from request_module import request
-from general_info_ukr import general_data_ukr
-from get_vactinated_by_ukr_region import total_vaccinated_region_ukr
 
 headers = config_file.headers_ukraine
 html = request(config_file.url_ukraine, headers)
@@ -16,18 +14,5 @@ def get_region_list():
         list_region.append(element.find("a").text)
     return list_region
 
-
-# get data from each region of Ukraine
-def region_data_ukr(selected_region):
-    # selected_region = input("Enter text:")
-    all_info = html.find_all('table')[1].find_all('td')
-    for i in all_info:
-        if i.string == selected_region:
-            all_infected = i.parent.find("td", class_="blank larger").text
-            all_deaths = i.parent.find_all("td", class_="blank")[2].text
-            all_recovered = i.parent.find_all("td", class_="blank")[4].text
-            all_now_ill = i.parent.find_all("td", class_="blank")[6].text
-            total_vaccinated = total_vaccinated_region_ukr(i.string)
-            general_data_ukr(all_infected, all_deaths, all_recovered, all_now_ill, total_vaccinated)
 
 

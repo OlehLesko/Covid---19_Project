@@ -41,7 +41,7 @@ top_10 = country_from_sorted_list()
 Europe_window = Tk()
 Europe_window.geometry(config_file.first_window_size)
 Europe_window.title('Covid-19 information')
-Europe_window.iconbitmap('Coronavirus-300x300.ico')
+Europe_window.iconbitmap('icon.ico')
 Europe_window.resizable(width=False, height=False)
 
 
@@ -51,7 +51,7 @@ canvas = Canvas(Europe_window,
                 width=canvas_width,
                 height=canvas_height)
 
-photo = PhotoImage(file='Imagecovid (1).png')
+photo = PhotoImage(file='second_win_image.png')
 canvas.create_image(370, 200, image=photo)
 canvas.create_text(130, 80, text="Select a country:", fill="White",
                    font=('Arial', 23))

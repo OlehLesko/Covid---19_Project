@@ -45,11 +45,10 @@ Europe_window.iconbitmap('icon.ico')
 Europe_window.resizable(width=False, height=False)
 
 
-canvas_width = 1005
-canvas_height = 1000
+
 canvas = Canvas(Europe_window,
-                width=canvas_width,
-                height=canvas_height)
+                width=config_file.canvas_width,
+                height=config_file.canvas_height)
 
 photo = PhotoImage(file='second_win_image.png')
 canvas.create_image(370, 200, image=photo)

@@ -32,12 +32,10 @@ Ukraine_window.title('Covid-19 information')
 Ukraine_window.iconbitmap('icon.ico')
 Ukraine_window.resizable(width=False, height=False)
 
-# create canva window
-canvas_width = 1005
-canvas_height = 1000
+# create canvas window
 canvas = Canvas(Ukraine_window,
-                width=canvas_width,
-                height=canvas_height)
+                width=config_file.canvas_width,
+                height=config_file.canvas_height)
 photo = PhotoImage(file='second_win_image.png')
 
 # transparent text_1
@@ -92,9 +90,9 @@ def return_to_first_window():
     call(["python", "Start_App.py"])
 
 
-Button_Europe_second_window = Button(Ukraine_window, text='Main',
-                                     font=('Arial', 14), width=5, height=1, command=return_to_first_window)
-Button_Europe_second_window.place(x=1, y=2)
+return_to_main = Button(Ukraine_window, text='Main',
+                        font=('Arial', 14), width=5, height=1, command=return_to_first_window)
+return_to_main.place(x=1, y=2)
 
 Field_Ukraine = Text(Ukraine_window, width=30, height=8, bg='Light gray')
 Field_Ukraine.place(x=400, y=110)

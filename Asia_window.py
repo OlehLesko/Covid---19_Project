@@ -6,23 +6,22 @@ from get_general_vaccinated_data_asia import total_vaccinated
 from tkinter import *
 
 root = Tk()
-root.iconbitmap('icon.ico')
-
-canvas_width = 1005
-canvas_height = 1000
-canvas = Canvas(root,
-                width=canvas_width,
-                height=canvas_height)
-canvas.pack()
 root.geometry(config_file.first_window_size)
 root.title('Asia')
+root.iconbitmap('icon.ico')
+root.resizable(width=False, height=False)
 
+
+canvas = Canvas(root,
+                width=config_file.canvas_width,
+                height=config_file.canvas_height)
 photo = PhotoImage(file='second_win_image.png')
-canvas.create_image(370, 200, image=photo)
 
+canvas.create_image(370, 200, image=photo)
 canvas.create_text(190, 110, text="The state of\ncovid-19 in Asia", fill="White", font=('Arial', 36))
 info_text = Text(root, width=31, height=16, bg='light gray', font=(None, 13))
 info_text.place(x=460, y=50)
+canvas.pack()
 
 headers = config_file.headers_asia
 html = request(config_file.url_asia, headers)
@@ -42,7 +41,8 @@ def click():
     call(["python", "Start_App.py"])
 
 
-but = Button(root, text='<<', width=5, height=1, command=click, font=('Arial', 14))
-but.place(x=1, y=1)
+return_to_main = Button(root, text='Main',
+                        font=('Arial', 14), width=5, height=1, command=click)
+return_to_main.place(x=1, y=2)
 
 root.mainloop()

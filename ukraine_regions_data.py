@@ -10,7 +10,6 @@ list_region = []
 def get_region_list():
     region_of_ukraine = html.find("div", class_="compact-table expand-table").find("table").find_all("tr")
     for element in region_of_ukraine[1:-1]:
-        # print(element.find("a").text)
         list_region.append(element.find("a").text)
     return list_region
 

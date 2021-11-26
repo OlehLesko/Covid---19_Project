@@ -36,13 +36,13 @@ info_text.insert(1.0, f"\n{all_infected}\n\n {deaths} \n\n {recovered} \n\n {now
 info_text['state'] = 'disabled'
 
 
-def click():
+def return_to_first_window():
     root.destroy()
     call(["python", "Start_App.py"])
 
 
 return_to_main = Button(root, text='Main',
-                        font=('Arial', 14), width=5, height=1, command=click)
+                        font=('Arial', 14), width=5, height=1, command=return_to_first_window)
 return_to_main.place(x=1, y=2)
 
 root.mainloop()

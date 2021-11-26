@@ -94,7 +94,7 @@ return_to_main = Button(Ukraine_window, text='Main',
                         font=('Arial', 14), width=5, height=1, command=return_to_first_window)
 return_to_main.place(x=1, y=2)
 
-Field_Ukraine = Text(Ukraine_window, width=30, height=8, bg='Light gray')
+Field_Ukraine = Text(Ukraine_window, width=35, height=8, bg='Light gray')
 Field_Ukraine.place(x=400, y=110)
 
 Ukraine_window.mainloop()

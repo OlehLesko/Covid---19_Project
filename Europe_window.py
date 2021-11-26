@@ -44,8 +44,6 @@ Europe_window.title('Covid-19 information')
 Europe_window.iconbitmap('icon.ico')
 Europe_window.resizable(width=False, height=False)
 
-
-
 canvas = Canvas(Europe_window,
                 width=config_file.canvas_width,
                 height=config_file.canvas_height)
@@ -56,6 +54,7 @@ canvas.create_text(130, 80, text="Select a country:", fill="White",
                    font=('Arial', 23))
 
 canvas.pack()
+
 
 def show_result(event):
     Field_Europe.delete(1.0, END)
@@ -70,7 +69,7 @@ def show_result(event):
         Field_Europe.insert(1.0, (f'Country: {label}\n'
                                   f'Last updated: {last_updated}\n \n'
                                   f'Confirmed: {confirmed}\n'
-                                  
+
                                   f'Recovered: {recovered}\n'
                                   f'Deaths: {deaths}\n \n'
                                   f'Total vaccinated: {total_vaccinated}\n'))
@@ -103,16 +102,17 @@ Combobox_Europe_second_window['values'] = top_10
 Combobox_Europe_second_window.place(x=14, y=110)
 Combobox_Europe_second_window.bind('<<ComboboxSelected>>', show_result)
 
-def Click2():
+
+def return_to_first_window():
     Europe_window.destroy()
     call(["python", "Start_App.py"])
 
-Button_Europe_second_window = Button(Europe_window, text='<<',
-                                     font=('Arial', 14), width=5, height=1, command=Click2)
-Button_Europe_second_window.place(x=1, y=2)
 
-Field_Europe = Text(Europe_window, width=40, height=10, bg='Light gray')
-Field_Europe.place(x=360, y=14)
+return_to_main = Button(Europe_window, text='Main',
+                        font=('Arial', 14), width=5, height=1, command=return_to_first_window)
+return_to_main.place(x=1, y=2)
 
+Field_Europe = Text(Europe_window, width=35, height=8, bg='Light gray')
+Field_Europe.place(x=400, y=110)
 
 Europe_window.mainloop()

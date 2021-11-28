@@ -34,7 +34,8 @@ def create_general_window():
 
     def euro_open():
         first_window.destroy()
-        call(["python", "Europe_window.py"])
+        # call(["python", "Europe_window.py"])
+        import Europe_window
 
     button_europe = Button(canvas,
                            text='Europe',
@@ -45,7 +46,8 @@ def create_general_window():
 
     def ukraine_open():
         first_window.destroy()
-        call(["python", "Ukraine_window.py"])
+        # call(["python", "Ukraine_window.py"])
+        import Ukraine_window
 
     button_ukraine = Button(canvas,
                             text='Ukraine',
@@ -56,7 +58,8 @@ def create_general_window():
 
     def asia_open():
         first_window.destroy()
-        call(["python", "Asia_window.py"])
+        # call(["python", "Asia_window.py"])
+        import Asia_window
 
     button_asia = Button(canvas,
                          text='Asia',

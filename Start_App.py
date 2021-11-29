@@ -10,6 +10,7 @@ import Asia_window
 def create_general_window():
     first_window = Tk()
     first_window.iconbitmap('icon.ico')
+    first_window.resizable(width=False, height=False)
 
     canvas_width = 1005
     canvas_height = 1000

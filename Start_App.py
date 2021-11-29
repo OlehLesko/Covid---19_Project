@@ -1,6 +1,9 @@
 from subprocess import call
 from tkinter import *
 import config_file
+import Europe_window
+import Ukraine_window
+import Asia_window
 
 
 # Creating general window of program
@@ -34,8 +37,8 @@ def create_general_window():
 
     def euro_open():
         first_window.destroy()
-        # call(["python", "Europe_window.py"])
-        import Europe_window
+        Europe_window.Europe_function()
+
 
     button_europe = Button(canvas,
                            text='Europe',
@@ -46,8 +49,7 @@ def create_general_window():
 
     def ukraine_open():
         first_window.destroy()
-        # call(["python", "Ukraine_window.py"])
-        import Ukraine_window
+        Ukraine_window.Ukraine_function()
 
     button_ukraine = Button(canvas,
                             text='Ukraine',
@@ -58,8 +60,7 @@ def create_general_window():
 
     def asia_open():
         first_window.destroy()
-        # call(["python", "Asia_window.py"])
-        import Asia_window
+        Asia_window.Asia_function()
 
     button_asia = Button(canvas,
                          text='Asia',

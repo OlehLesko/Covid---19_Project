@@ -24,7 +24,7 @@ def create_general_window():
     canvas.create_text(515, 180, text="Find out the information:", fill="White", font=('Arial', 20))
 
     label_phone_number = Label(first_window,
-                               text='Гаряча лінія: '
+                               text='Hotline: '
                                     '0 800 60 20 19',
 
                                fg='Black', font=('Arial', 14),

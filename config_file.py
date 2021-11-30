@@ -10,6 +10,8 @@ first_window_background = 'Blue'
 canvas_width = 1700
 canvas_height = 900
 
+canvas_image_x = 970
+canvas_image_y = 300
 
 
 # Asia

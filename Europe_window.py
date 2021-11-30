@@ -49,9 +49,9 @@ def europe_function():
                     height=canvas_height)
 
     photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
-    canvas.create_image(900, 300, image=photo)
-    canvas.create_text(130, 80, text="Select a country:", fill="White",
-                       font=('Arial', 23))
+    canvas.create_image(canvas_image_x, canvas_image_y, image=photo)
+    canvas.create_text(300, 180, text="Select a country:", fill="White",
+                       font=('Arial', 53))
 
     canvas.pack()
 
@@ -96,11 +96,14 @@ def europe_function():
                                           f'Deaths: {deaths_second}\n \n'
                                           f'Total vaccinated: {total_vaccinated_second}\n'))
 
-
-    Combobox_Europe_second_window = tkinter.ttk.Combobox(Europe_window, values=top_10, width=47, height=20,
-                                                         state='readonly')
+    fontExample = ('Courier', 17, 'bold')
+    text_font = ('Arial', '20')
+    Combobox_Europe_second_window = tkinter.ttk.Combobox(Europe_window, values=top_10, exportselection=0, width=36, height=0,
+                                                         state='readonly', font=fontExample)
+    Combobox_Europe_second_window.option_add('*TCombobox*Listbox.font', text_font)
+    Combobox_Europe_second_window.set("Choose a country")
     Combobox_Europe_second_window['values'] = top_10
-    Combobox_Europe_second_window.place(x=14, y=110)
+    Combobox_Europe_second_window.place(x=60, y=250)
     Combobox_Europe_second_window.bind('<<ComboboxSelected>>', show_result)
 
 
@@ -109,11 +112,11 @@ def europe_function():
         Start_App.create_general_window()
 
 
-    return_to_main = Button(Europe_window, text='<',
+    return_to_main = Button(Europe_window, text='<<',
                             font=('Arial', 14), width=7, height=1, command=return_to_first_window)
     return_to_main.place(x=1, y=2)
 
-    Field_Europe = Text(Europe_window, width=60, height=15, bg='Light gray')
-    Field_Europe.place(x=1020, y=210)
+    Field_Europe = Text(Europe_window, width=58, height=20, bg='White', fg='Black', font = ('Arial', 15))
+    Field_Europe.place(x=835, y=100)
 
     Europe_window.mainloop()

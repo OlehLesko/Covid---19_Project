@@ -38,7 +38,7 @@ def create_general_window():
 
     def euro_open():
         first_window.destroy()
-        Europe_window.Europe_function()
+        Europe_window.europe_function()
 
 
     button_europe = Button(canvas,

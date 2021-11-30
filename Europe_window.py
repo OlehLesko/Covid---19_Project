@@ -45,8 +45,8 @@ def europe_function():
     Europe_window.resizable(width=False, height=False)
 
     canvas = Canvas(Europe_window,
-                    canvas_width,
-                    canvas_height)
+                    (canvas_width ,
+                     canvas_height))
 
     photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
     canvas.create_image(900, 300, image=photo)

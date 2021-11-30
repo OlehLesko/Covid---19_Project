@@ -38,7 +38,7 @@ def Ukraine_function():
     canvas = Canvas(Ukraine_window,
                     width=config_file.canvas_width,
                     height=config_file.canvas_height)
-    photo = PhotoImage(file='Images/second_win_image.png')
+    photo = PhotoImage(file='Images/Imagecovid .png')
 
     # transparent text_1
     canvas.create_image(370, 200, image=photo)

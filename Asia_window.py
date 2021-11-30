@@ -15,7 +15,7 @@ def Asia_function():
     canvas = Canvas(root,
                     width=config_file.canvas_width,
                     height=config_file.canvas_height)
-    photo = PhotoImage(file='Images/second_win_image.png')
+    photo = PhotoImage(file='Images/Imagecovid .png')
 
     canvas.create_image(370, 200, image=photo)
     canvas.create_text(190, 110, text="The state of\ncovid-19 in Asia", fill="White", font=('Arial', 36))

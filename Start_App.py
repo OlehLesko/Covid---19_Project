@@ -9,7 +9,7 @@ import Asia_window
 # Creating general window of program
 def create_general_window():
     first_window = Tk()
-    first_window.iconbitmap('icon.ico')
+    first_window.iconbitmap('Images/icon.ico')
     first_window.resizable(width=False, height=False)
 
     canvas_width = 1920
@@ -21,7 +21,7 @@ def create_general_window():
     first_window.state("zoomed")
     first_window.title(config_file.first_window_title)
 
-    photo = PhotoImage(file='Images/covid19 title (1).png')
+    photo = PhotoImage(file='Images/covid19 title.png')
     canvas.create_image(800,500 , image=photo)
 
     canvas.create_text(470, 80, text="Covid-19", fill="White", font=('Arial', 42))

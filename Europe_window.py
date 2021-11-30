@@ -48,7 +48,7 @@ def Europe_function():
                     width=config_file.canvas_width,
                     height=config_file.canvas_height)
 
-    photo = PhotoImage(file='Images/second_win_image.png')
+    photo = PhotoImage(file='Images/Imagecovid .png')
     canvas.create_image(370, 200, image=photo)
     canvas.create_text(130, 80, text="Select a country:", fill="White",
                        font=('Arial', 23))

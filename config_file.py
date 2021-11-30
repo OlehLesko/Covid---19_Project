@@ -1,12 +1,12 @@
 
 # We can use this file for setting different parameters
 # We can write some changes and it will influence on our project
-first_window_size = '775x400'
+first_window_size = 'zoomed'
 first_window_title = 'Covid-19'
 first_window_background = 'Blue'
 
-canvas_width = 1005
-canvas_height = 1000
+canvas_width = 1700
+canvas_height = 900
 
 
 

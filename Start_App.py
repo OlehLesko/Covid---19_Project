@@ -9,30 +9,30 @@ import Asia_window
 # Creating general window of program
 def create_general_window():
     first_window = Tk()
-    first_window.iconbitmap('Images/icon.ico')
+    first_window.iconbitmap('Images/covid19 title (1).png')
     first_window.resizable(width=False, height=False)
 
-    canvas_width = 1920
-    canvas_height = 1080
+    # canvas_width = 2000
+    # canvas_height = 2000
     canvas = Canvas(first_window,
-                    width=canvas_width,
-                    height=canvas_height)
+                    width=2300,
+                    height=1200)
     canvas.pack()
     first_window.state("zoomed")
     first_window.title(config_file.first_window_title)
 
-    photo = PhotoImage(file='Images/covid19 title.png')
-    canvas.create_image(800,500 , image=photo)
+    photo = PhotoImage(file='Images/image of main window.png')
+    canvas.create_image(600, 300, image=photo)
 
-    canvas.create_text(470, 80, text="Covid-19", fill="White", font=('Arial', 42))
-    canvas.create_text(515, 180, text="Find out the information:", fill="White", font=('Arial', 20))
+    canvas.create_text(300, 150, text="Covid-19", fill="White", font=('Arial', 80))
+    canvas.create_text(370, 320, text="Find out the information:", fill="White", font=('Arial', 40))
 
     label_phone_number = Label(first_window,
                                text='Hotline: '
                                     '0 800 60 20 19',
 
-                               fg='Black', font=('Arial', 14),
-                               width=70, height=1, anchor="w", justify="left")
+                               fg='Black', bg='white', font=('Arial', 13),
+                               width=160, height=1, anchor="w", justify="left")
 
     label_phone_number.place(x=0, y=0)
 
@@ -44,9 +44,9 @@ def create_general_window():
     button_europe = Button(canvas,
                            text='Europe',
                            bg='White', fg='Black',
-                           font=('Arial', 14),
+                           font=('Arial', 20),
                            width=11, height=2, command=euro_open)
-    button_europe.place(x=360, y=240)
+    button_europe.place(x=120, y=500)
 
     def ukraine_open():
         first_window.destroy()
@@ -55,9 +55,9 @@ def create_general_window():
     button_ukraine = Button(canvas,
                             text='Ukraine',
                             bg='White', fg='Black',
-                            font=('Arial', 14),
+                            font=('Arial', 20),
                             width=11, height=2, command=ukraine_open)
-    button_ukraine.place(x=495, y=240)
+    button_ukraine.place(x=320, y=500)
 
     def asia_open():
         first_window.destroy()
@@ -66,9 +66,9 @@ def create_general_window():
     button_asia = Button(canvas,
                          text='Asia',
                          bg='White', fg='Black',
-                         font=('Arial', 14),
+                         font=('Arial', 20),
                          width=11, height=2, command=asia_open)
-    button_asia.place(x=630, y=240)
+    button_asia.place(x=520, y=500)
 
     first_window.mainloop()
 

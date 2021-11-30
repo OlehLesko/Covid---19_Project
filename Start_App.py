@@ -11,14 +11,16 @@ def create_general_window():
     first_window = Tk()
     first_window.iconbitmap('Images/icon.ico')
     first_window.resizable(width=False, height=False)
+    w = first_window.winfo_screenwidth()
+    h = first_window.winfo_screenheight()
 
     # canvas_width = 2000
     # canvas_height = 2000
     canvas = Canvas(first_window,
-                    width=2300,
-                    height=1200)
+                    width=w,
+                    height=h)
     canvas.pack(fill="both", expand=True)
-    first_window.state("zoomed")
+    first_window.state('zoomed')
     first_window.title(config_file.first_window_title)
 
     photo = PhotoImage(file='Images/image of main window.png')

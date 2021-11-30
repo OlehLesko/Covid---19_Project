@@ -19,8 +19,8 @@ def asia_function():
 
     canvas.create_image(370, 200, image=photo)
     canvas.create_text(380, 200, text="The state of\ncovid-19 in Asia", fill="White", font=('Arial', 56))
-    info_text = Text(root, width=34, height=12, bg='slategray', font=(None, 19))
-    info_text.place(x=860, y=200)
+    info_text = Text(root, width=34, height=15, bg='darkgray', font=(None, 15))
+    info_text.place(x=860, y=150)
     canvas.pack()
 
     headers = headers_asia
@@ -32,7 +32,7 @@ def asia_function():
     now_ill = f'Now ill: {html.find_all("td", class_="bg-total")[7].text}\n'
     total_vaccinated_people = f'Total vaccinated people: {total_vaccinated()}'
 
-    info_text.insert(1.0, f"\n{all_infected}\n {deaths} \n {recovered} \n {now_ill} \n {total_vaccinated_people}")
+    info_text.insert(1.0, f"\n{all_infected}\n\n {deaths} \n\n {recovered} \n\n {now_ill} \n\n {total_vaccinated_people}")
     info_text['state'] = 'disabled'
 
 

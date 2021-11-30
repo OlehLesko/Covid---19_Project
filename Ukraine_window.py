@@ -1,4 +1,4 @@
-import config_file
+from config_file import *
 from get_vactinated_by_ukr_region import total_vaccinated_region_ukr
 from ukraine_regions_data import get_region_list
 # from Europe_window import Europe_function
@@ -18,8 +18,8 @@ from subprocess import call
 
 def Ukraine_function():
     # use it for request
-    headers = config_file.headers_ukraine
-    html = request(config_file.url_ukraine, headers)
+    headers = headers_ukraine
+    html = request(url_ukraine, headers)
 
     # translate ukrainian region in english transliteration
     translate_elements = []
@@ -29,19 +29,19 @@ def Ukraine_function():
 
     # create tkinter window of Ukraine
     Ukraine_window = Tk()
-    Ukraine_window.geometry(config_file.first_window_size)
+    Ukraine_window.state(first_window_size)
     Ukraine_window.title('Covid-19 information')
     Ukraine_window.iconbitmap('Images/icon.ico')
     Ukraine_window.resizable(width=False, height=False)
 
     # create canvas window
     canvas = Canvas(Ukraine_window,
-                    width=config_file.canvas_width,
-                    height=config_file.canvas_height)
-    photo = PhotoImage(file='Images/Imagecovid .png')
+                    width=canvas_width,
+                    height=canvas_height)
+    photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
 
     # transparent text_1
-    canvas.create_image(370, 200, image=photo)
+    canvas.create_image(900, 300, image=photo)
     canvas.create_text(130, 90, text="Region of Ukraine:", fill="White",
                        font=('Arial', 20))
 

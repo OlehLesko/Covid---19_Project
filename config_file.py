@@ -5,6 +5,8 @@ first_window_size = 'zoomed'
 first_window_title = 'Covid-19'
 first_window_background = 'Blue'
 
+
+
 canvas_width = 1700
 canvas_height = 900
 

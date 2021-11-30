@@ -45,11 +45,11 @@ def Europe_function():
     Europe_window.resizable(width=False, height=False)
 
     canvas = Canvas(Europe_window,
-                    width=config_file.canvas_width,
-                    height=config_file.canvas_height)
+                    width=1700,
+                    height=900)
 
-    photo = PhotoImage(file='Images/Imagecovid .png')
-    canvas.create_image(370, 200, image=photo)
+    photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
+    canvas.create_image(900, 300, image=photo)
     canvas.create_text(130, 80, text="Select a country:", fill="White",
                        font=('Arial', 23))
 

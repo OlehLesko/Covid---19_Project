@@ -8,14 +8,14 @@ def Asia_function():
     root = Tk()
     root.geometry(config_file.first_window_size)
     root.title('Asia')
-    root.iconbitmap('icon.ico')
+    root.iconbitmap('Images/icon.ico')
     root.resizable(width=False, height=False)
 
 
     canvas = Canvas(root,
                     width=config_file.canvas_width,
                     height=config_file.canvas_height)
-    photo = PhotoImage(file='second_win_image.png')
+    photo = PhotoImage(file='Images/second_win_image.png')
 
     canvas.create_image(370, 200, image=photo)
     canvas.create_text(190, 110, text="The state of\ncovid-19 in Asia", fill="White", font=('Arial', 36))

@@ -31,14 +31,14 @@ def Ukraine_function():
     Ukraine_window = Tk()
     Ukraine_window.geometry(config_file.first_window_size)
     Ukraine_window.title('Covid-19 information')
-    Ukraine_window.iconbitmap('icon.ico')
+    Ukraine_window.iconbitmap('Images/icon.ico')
     Ukraine_window.resizable(width=False, height=False)
 
     # create canvas window
     canvas = Canvas(Ukraine_window,
                     width=config_file.canvas_width,
                     height=config_file.canvas_height)
-    photo = PhotoImage(file='second_win_image.png')
+    photo = PhotoImage(file='Images/second_win_image.png')
 
     # transparent text_1
     canvas.create_image(370, 200, image=photo)

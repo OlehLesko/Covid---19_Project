@@ -3,10 +3,10 @@ from tkinter import *
 import tkinter.ttk
 from covid.api import CovId19Data
 from get_vaccinated_by_countries_EU import vaccinated
-import config_file
+from config_file import *
 import Start_App
 
-def Europe_function():
+def europe_function():
     api = CovId19Data(force=True)
 
     new_list = []
@@ -39,14 +39,14 @@ def Europe_function():
     top_10 = country_from_sorted_list()
 
     Europe_window = Tk()
-    Europe_window.state('zoomed')
+    Europe_window.state(first_window_size)
     Europe_window.title('Covid-19 information')
     Europe_window.iconbitmap('Images/icon.ico')
     Europe_window.resizable(width=False, height=False)
 
     canvas = Canvas(Europe_window,
-                    width=1700,
-                    height=900)
+                    canvas_width,
+                    canvas_height)
 
     photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
     canvas.create_image(900, 300, image=photo)

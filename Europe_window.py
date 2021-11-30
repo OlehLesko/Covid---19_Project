@@ -45,8 +45,8 @@ def europe_function():
     Europe_window.resizable(width=False, height=False)
 
     canvas = Canvas(Europe_window,
-                    (canvas_width ,
-                     canvas_height))
+                    width=canvas_width,
+                    height=canvas_height)
 
     photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
     canvas.create_image(900, 300, image=photo)
@@ -97,7 +97,7 @@ def europe_function():
                                           f'Total vaccinated: {total_vaccinated_second}\n'))
 
 
-    Combobox_Europe_second_window = tkinter.ttk.Combobox(Europe_window, values=top_10, width=45, height=11,
+    Combobox_Europe_second_window = tkinter.ttk.Combobox(Europe_window, values=top_10, width=47, height=20,
                                                          state='readonly')
     Combobox_Europe_second_window['values'] = top_10
     Combobox_Europe_second_window.place(x=14, y=110)
@@ -109,11 +109,11 @@ def europe_function():
         Start_App.create_general_window()
 
 
-    return_to_main = Button(Europe_window, text='Main',
-                            font=('Arial', 14), width=5, height=1, command=return_to_first_window)
+    return_to_main = Button(Europe_window, text='<',
+                            font=('Arial', 14), width=7, height=1, command=return_to_first_window)
     return_to_main.place(x=1, y=2)
 
-    Field_Europe = Text(Europe_window, width=36, height=12, bg='Light gray')
-    Field_Europe.place(x=400, y=110)
+    Field_Europe = Text(Europe_window, width=60, height=15, bg='Light gray')
+    Field_Europe.place(x=1020, y=210)
 
     Europe_window.mainloop()

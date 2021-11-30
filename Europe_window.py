@@ -1,4 +1,3 @@
-from subprocess import call
 from countrygroups import EUROPEAN_UNION as EU_country
 from tkinter import *
 import tkinter.ttk

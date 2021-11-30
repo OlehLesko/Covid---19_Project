@@ -12,17 +12,17 @@ def create_general_window():
     first_window.iconbitmap('icon.ico')
     first_window.resizable(width=False, height=False)
 
-    canvas_width = 1005
-    canvas_height = 1000
+    canvas_width = 1920
+    canvas_height = 1080
     canvas = Canvas(first_window,
                     width=canvas_width,
                     height=canvas_height)
     canvas.pack()
-    first_window.geometry(config_file.first_window_size)
+    first_window.state("zoomed")
     first_window.title(config_file.first_window_title)
 
-    photo = PhotoImage(file='covid19 title.png')
-    canvas.create_image(370, 200, image=photo)
+    photo = PhotoImage(file='Images/covid19 title (1).png')
+    canvas.create_image(800,500 , image=photo)
 
     canvas.create_text(470, 80, text="Covid-19", fill="White", font=('Arial', 42))
     canvas.create_text(515, 180, text="Find out the information:", fill="White", font=('Arial', 20))

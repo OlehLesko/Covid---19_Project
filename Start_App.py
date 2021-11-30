@@ -9,7 +9,7 @@ import Asia_window
 # Creating general window of program
 def create_general_window():
     first_window = Tk()
-    first_window.iconbitmap('Images/covid19 title (1).png')
+    first_window.iconbitmap('Images/icon.ico')
     first_window.resizable(width=False, height=False)
 
     # canvas_width = 2000
@@ -32,7 +32,7 @@ def create_general_window():
                                     '0 800 60 20 19',
 
                                fg='Black', bg='white', font=('Arial', 13),
-                               width=160, height=1, anchor="w", justify="left")
+                               width=220, height=1, anchor="w", justify="left")
 
     label_phone_number.place(x=0, y=0)
 

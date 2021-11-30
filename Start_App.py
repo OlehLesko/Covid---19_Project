@@ -4,21 +4,27 @@ import config_file
 import Europe_window
 import Ukraine_window
 import Asia_window
-
+# import pyautogui
+# res = pyautogui.size()
+# print(res)
 
 # Creating general window of program
 def create_general_window():
     first_window = Tk()
     first_window.iconbitmap('Images/icon.ico')
-    first_window.resizable(width=False, height=False)
-
+    first_window.resizable(width=True, height=True)
     # canvas_width = 2000
     # canvas_height = 2000
+
+    w = first_window.winfo_screenwidth()
+    h = first_window.winfo_screenheight()
+
     canvas = Canvas(first_window,
-                    width=2300,
-                    height=1200)
+                    width=w,
+                    height=h)
     canvas.pack(fill="both", expand=True)
     first_window.state("zoomed")
+    # first_window.geometry(f'{config_file.canvas_width}x{config_file.canvas_height}')
     first_window.title(config_file.first_window_title)
 
     photo = PhotoImage(file='Images/image of main window.png')

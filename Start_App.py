@@ -17,7 +17,7 @@ def create_general_window():
     canvas = Canvas(first_window,
                     width=2300,
                     height=1200)
-    canvas.pack()
+    canvas.pack(fill="both", expand=True)
     first_window.state("zoomed")
     first_window.title(config_file.first_window_title)
 

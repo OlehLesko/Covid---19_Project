@@ -48,8 +48,8 @@ def Ukraine_function():
     # transparent text_2 about current statistic date translated to English
     period_of_time = html.find("table", class_="line").find("caption").text
     period_of_time = GoogleTranslator(source='auto', target='en').translate(period_of_time)
-    canvas.create_text(400, 30, text=period_of_time, fill="#fefe00",
-                       font=('Arial', 18))
+    canvas.create_text(400, 30, fill="black",
+                       font=('Arial', 14))
     canvas.pack()
 
 
@@ -63,6 +63,7 @@ def Ukraine_function():
         # looking for and get information about selected region
         for i in all_info:
             if i.string == selected_region:
+                times = period_of_time
                 all_infected = i.parent.find("td", class_="blank larger").text
                 all_deaths = i.parent.find_all("td", class_="blank")[2].text
                 all_recovered = i.parent.find_all("td", class_="blank")[4].text
@@ -70,12 +71,12 @@ def Ukraine_function():
                 total_vaccinated = total_vaccinated_region_ukr(i.string)
 
                 Field_Ukraine.insert(1.0, (
+                    f'{times}\n'
                     f'\nConfirmed: {all_infected}\n'
-    
-                    f'Recovered: {all_recovered}\n'
-                    f'Deaths: {all_deaths}\n'
-                    f'Now ill: {all_now_ill}\n'
-                    f'Total vaccinated: {total_vaccinated}\n'))
+                    f'\nRecovered: {all_recovered}\n'
+                    f'\nDeaths: {all_deaths}\n'
+                    f'\nNow ill: {all_now_ill}\n'
+                    f'\nTotal vaccinated: {total_vaccinated}\n'))
 
 
     Combobox_Ukraine_second_window = tkinter.ttk.Combobox(Ukraine_window, values=ukraine_regions, width=45, height=11,
@@ -96,7 +97,7 @@ def Ukraine_function():
                             font=('Arial', 14), width=5, height=1, command=return_to_first_window)
     return_to_main.place(x=1, y=2)
 
-    Field_Ukraine = Text(Ukraine_window, width=35, height=8, bg='Light gray')
-    Field_Ukraine.place(x=400, y=110)
+    Field_Ukraine = Text(Ukraine_window, width=36, height=12, bg='Light gray')
+    Field_Ukraine.place(x=400, y=90)
 
     Ukraine_window.mainloop()

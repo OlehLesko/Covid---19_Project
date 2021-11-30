@@ -89,6 +89,7 @@ def Europe_function():
 
                 Field_Europe.insert(1.0, (f'Country: {label_second}\n'
                                           f'Last updated: {last_updated_second}\n \n'
+                                          
                                           f'Confirmed: {confirmed_second}\n'
     
                                           f'Recovered: {recovered_second}\n'
@@ -112,7 +113,7 @@ def Europe_function():
                             font=('Arial', 14), width=5, height=1, command=return_to_first_window)
     return_to_main.place(x=1, y=2)
 
-    Field_Europe = Text(Europe_window, width=35, height=8, bg='Light gray')
+    Field_Europe = Text(Europe_window, width=36, height=12, bg='Light gray')
     Field_Europe.place(x=400, y=110)
 
     Europe_window.mainloop()

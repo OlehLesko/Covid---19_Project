@@ -25,7 +25,7 @@ def create_general_window():
     canvas.create_image(600, 300, image=photo)
 
     canvas.create_text(300, 150, text="Covid-19", fill="White", font=('Arial', 80))
-    canvas.create_text(370, 320, text="Find out the information:", fill="White", font=('Arial', 40))
+    canvas.create_text(375, 320, text="Find out the information:", fill="White", font=('Arial', 40))
 
     label_phone_number = Label(first_window,
                                text='Hotline: '

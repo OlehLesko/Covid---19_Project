@@ -61,7 +61,7 @@ def create_general_window():
 
     def asia_open():
         first_window.destroy()
-        Asia_window.Asia_function()
+        Asia_window.asia_function()
 
     button_asia = Button(canvas,
                          text='Asia',

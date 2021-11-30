@@ -4,7 +4,7 @@ from request_module import request
 from get_general_vaccinated_data_asia import total_vaccinated
 from tkinter import *
 
-def Asia_function():
+def asia_function():
     root = Tk()
     root.geometry(config_file.first_window_size)
     root.title('Asia')

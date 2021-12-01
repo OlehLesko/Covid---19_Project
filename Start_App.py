@@ -1,3 +1,5 @@
+from PIL import Image as im
+from PIL import ImageTk as imtk
 
 from subprocess import call
 from tkinter import *
@@ -7,6 +9,19 @@ import Europe_window
 import Ukraine_window
 import Asia_window
 
+# ----------------
+
+Monitor = get_monitors()
+
+a = Monitor[0]
+
+w = int(a.width)
+h = int(a.height)
+
+
+image_width = int(w / 100 * 27)
+image_height = int(h / 100 * 46)
+# ------------
 
 
 # Creating general window of program
@@ -14,33 +29,48 @@ def create_general_window():
     first_window = Tk()
     first_window.iconbitmap('Images/icon.ico')
     first_window.resizable(width=False, height=False)
+# ---------
+    # Monitor = get_monitors()
+    #
+    # a = Monitor[0]
+    #
+    # interface_width = int(a.width)
+    # interface_height = int(a.height)
 
-    # for m in get_monitors():
-    Monitor = get_monitors()
+# ---------
+    # print(interface_width, interface_height)
 
 
-    a = Monitor[0]
 
-    interface_width = int(a.width)
-    interface_height = int(a.height)
-    print(interface_width, interface_height)
+    # print(image_width, image_height)
 
-    image_width = int(interface_width / 100 * 34)
-    image_height = int(interface_height / 100 * 43)
 
-    print(image_width, image_height)
 
+    # w = first_window.winfo_screenwidth()
+    # h = first_window.winfo_screenheight()
 
     canvas = Canvas(first_window,
-                    width=interface_width,
-                    height=interface_height)
+                    width=w,
+                    height=h)
 
     canvas.pack(fill="both", expand=True)
     first_window.state("zoomed")
     first_window.title(config_file.first_window_title)
 
-    photo = PhotoImage(file='Images/image of main window.png')
-    canvas.create_image(image_width, image_height, image=photo)
+    image_1 = im.open("Images/image of main window.png")
+
+    # with Image.open('Images/Image_of_window_Ukraine, Europe, Asia.png') as im6:
+    #     pass
+    # im6.load()
+
+    print(w,h)
+    # Resize the Image using resize method
+    resized_image = image_1.resize((w, h), im.ANTIALIAS)
+    # new_image = ImageTk.PhotoImage(resized_image)
+
+    photo = imtk.PhotoImage(resized_image)
+    canvas.create_image(0, 0, anchor=NW, image=photo)
+
 
     canvas.create_text(300, 150, text="Covid-19", fill="White", font=('Arial', 80))
     canvas.create_text(375, 320, text="Find out the information:", fill="White", font=('Arial', 40))
@@ -48,6 +78,7 @@ def create_general_window():
     canvas.create_text(1180, 25, text="Contact center of the MOZ:", fill="White", font=('Arial', 18))
 
     canvas.create_text(1242, 53, text="0 800 60 20 19", fill="White", font=('Arial', 18))
+
     # pharm = Button(canvas, text = 'Buy medicine on the website', fg='white',font=(None, 18))
     # pharm.place(x=20, y=20)
 
@@ -63,7 +94,6 @@ def create_general_window():
     def euro_open():
         first_window.destroy()
         Europe_window.europe_function()
-
 
     button_europe = Button(canvas,
                            text='Europe',
@@ -92,11 +122,10 @@ def create_general_window():
                          bg='White', fg='Black',
                          font=('Arial', 20),
                          width=11, height=2, command=asia_open)
-    button_asia.place(x=520, y=500)
+    button_asia.place(x=image_width, y=image_height)
 
     first_window.mainloop()
 
 
 if __name__ == "__main__":
     create_general_window()
-

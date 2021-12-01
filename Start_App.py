@@ -1,9 +1,12 @@
+
 from subprocess import call
 from tkinter import *
+from screeninfo import get_monitors
 import config_file
 import Europe_window
 import Ukraine_window
 import Asia_window
+
 
 
 # Creating general window of program
@@ -11,20 +14,33 @@ def create_general_window():
     first_window = Tk()
     first_window.iconbitmap('Images/icon.ico')
     first_window.resizable(width=False, height=False)
-    w = first_window.winfo_screenwidth()
-    h = first_window.winfo_screenheight()
 
-    # canvas_width = 2000
-    # canvas_height = 2000
+    # for m in get_monitors():
+    Monitor = get_monitors()
+
+
+    a = Monitor[0]
+
+    interface_width = int(a.width)
+    interface_height = int(a.height)
+    print(interface_width, interface_height)
+
+    image_width = int(interface_width / 100 * 34)
+    image_height = int(interface_height / 100 * 43)
+
+    print(image_width, image_height)
+
+
     canvas = Canvas(first_window,
-                    width=w,
-                    height=h)
+                    width=interface_width,
+                    height=interface_height)
+
     canvas.pack(fill="both", expand=True)
-    first_window.state('zoomed')
+    first_window.state("zoomed")
     first_window.title(config_file.first_window_title)
 
     photo = PhotoImage(file='Images/image of main window.png')
-    canvas.create_image(600, 300, image=photo)
+    canvas.create_image(image_width, image_height, image=photo)
 
     canvas.create_text(300, 150, text="Covid-19", fill="White", font=('Arial', 80))
     canvas.create_text(375, 320, text="Find out the information:", fill="White", font=('Arial', 40))
@@ -83,3 +99,4 @@ def create_general_window():
 
 if __name__ == "__main__":
     create_general_window()
+

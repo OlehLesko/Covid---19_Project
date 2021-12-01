@@ -10,11 +10,12 @@ def asia_function():
     root.title('Asia')
     root.iconbitmap('Images/icon.ico')
     root.resizable(width=False, height=False)
-
+    w = root.winfo_screenwidth()
+    h = root.winfo_screenheight()
 
     canvas = Canvas(root,
-                    width=canvas_width,
-                    height=canvas_height)
+                    width=w,
+                    height=h)
     photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
 
     canvas.create_image(370, 200, image=photo)

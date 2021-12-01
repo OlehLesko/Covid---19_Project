@@ -29,14 +29,20 @@ def create_general_window():
     canvas.create_text(300, 150, text="Covid-19", fill="White", font=('Arial', 80))
     canvas.create_text(375, 320, text="Find out the information:", fill="White", font=('Arial', 40))
 
-    label_phone_number = Label(first_window,
-                               text='Hotline: '
-                                    '0 800 60 20 19',
+    canvas.create_text(1180, 25, text="Contact center of the MOZ:", fill="White", font=('Arial', 18))
 
-                               fg='Black', bg='white', font=('Arial', 13),
-                               width=220, height=1, anchor="w", justify="left")
+    canvas.create_text(1242, 53, text="0 800 60 20 19", fill="White", font=('Arial', 18))
+    # pharm = Button(canvas, text = 'Buy medicine on the website', fg='white',font=(None, 18))
+    # pharm.place(x=20, y=20)
 
-    label_phone_number.place(x=0, y=0)
+    # label_phone_number = Label(first_window,
+    #                            text='Hotline: '
+    #                                 '0 800 60 20 19',
+    #
+    #                            fg='Black', font=('Arial', 13),
+    #                            width=220, height=2, anchor="w", justify="left")
+    #
+    # label_phone_number.place(x=0, y=0)
 
     def euro_open():
         first_window.destroy()

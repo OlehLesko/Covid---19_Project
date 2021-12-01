@@ -1,7 +1,6 @@
 from PIL import Image as im
 from PIL import ImageTk as imtk
 
-from subprocess import call
 from tkinter import *
 from screeninfo import get_monitors
 import config_file
@@ -18,9 +17,10 @@ a = Monitor[0]
 w = int(a.width)
 h = int(a.height)
 
-
 image_width = int(w / 100 * 27)
 image_height = int(h / 100 * 46)
+
+
 # ------------
 
 
@@ -29,7 +29,7 @@ def create_general_window():
     first_window = Tk()
     first_window.iconbitmap('Images/icon.ico')
     first_window.resizable(width=False, height=False)
-# ---------
+    # ---------
     # Monitor = get_monitors()
     #
     # a = Monitor[0]
@@ -37,14 +37,10 @@ def create_general_window():
     # interface_width = int(a.width)
     # interface_height = int(a.height)
 
-# ---------
+    # ---------
     # print(interface_width, interface_height)
 
-
-
     # print(image_width, image_height)
-
-
 
     # w = first_window.winfo_screenwidth()
     # h = first_window.winfo_screenheight()
@@ -63,14 +59,13 @@ def create_general_window():
     #     pass
     # im6.load()
 
-    print(w,h)
+    print(w, h)
     # Resize the Image using resize method
     resized_image = image_1.resize((w, h), im.ANTIALIAS)
     # new_image = ImageTk.PhotoImage(resized_image)
 
     photo = imtk.PhotoImage(resized_image)
     canvas.create_image(0, 0, anchor=NW, image=photo)
-
 
     canvas.create_text(300, 150, text="Covid-19", fill="White", font=('Arial', 80))
     canvas.create_text(375, 320, text="Find out the information:", fill="White", font=('Arial', 40))
@@ -79,17 +74,6 @@ def create_general_window():
 
     canvas.create_text(1242, 53, text="0 800 60 20 19", fill="White", font=('Arial', 18))
 
-    # pharm = Button(canvas, text = 'Buy medicine on the website', fg='white',font=(None, 18))
-    # pharm.place(x=20, y=20)
-
-    # label_phone_number = Label(first_window,
-    #                            text='Hotline: '
-    #                                 '0 800 60 20 19',
-    #
-    #                            fg='Black', font=('Arial', 13),
-    #                            width=220, height=2, anchor="w", justify="left")
-    #
-    # label_phone_number.place(x=0, y=0)
 
     def euro_open():
         first_window.destroy()

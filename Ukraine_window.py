@@ -16,6 +16,7 @@ from tkinter import *
 import tkinter.ttk
 from subprocess import call
 
+
 def Ukraine_function():
     # use it for request
     headers = headers_ukraine
@@ -33,11 +34,12 @@ def Ukraine_function():
     Ukraine_window.title('Covid-19 information')
     Ukraine_window.iconbitmap('Images/icon.ico')
     Ukraine_window.resizable(width=False, height=False)
-
+    w = Ukraine_window.winfo_screenwidth()
+    h = Ukraine_window.winfo_screenheight()
     # create canvas window
     canvas = Canvas(Ukraine_window,
-                    width=canvas_width,
-                    height=canvas_height)
+                    width=w,
+                    height=h)
     photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
 
     # transparent text_1
@@ -51,7 +53,6 @@ def Ukraine_function():
     canvas.create_text(400, 30, fill="black",
                        font=('Arial', 14))
     canvas.pack()
-
 
     # show result in the text field about selected region
     def show_result(event):
@@ -78,20 +79,20 @@ def Ukraine_function():
                     f'\nNow ill: {all_now_ill}\n'
                     f'\nTotal vaccinated: {total_vaccinated}\n'))
 
+    text_font = ('Courier New', '20')
+    Ukraine_window.option_add('*TCombobox*Listbox.font', text_font)
 
-    Combobox_Ukraine_second_window = tkinter.ttk.Combobox(Ukraine_window, values=ukraine_regions, width=45, height=11,
+    Combobox_Ukraine_second_window = tkinter.ttk.Combobox(Ukraine_window, values=ukraine_regions, width=40, height=12,
                                                           state='readonly')
 
     Combobox_Ukraine_second_window['values'] = translate_elements
     Combobox_Ukraine_second_window.place(x=14, y=110)
     Combobox_Ukraine_second_window.bind('<<ComboboxSelected>>', show_result)
 
-
     # back to the main window
     def return_to_first_window():
         Ukraine_window.destroy()
         Start_App.create_general_window()
-
 
     return_to_main = Button(Ukraine_window, text='Main',
                             font=('Arial', 14), width=5, height=1, command=return_to_first_window)

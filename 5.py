@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from screeninfo import get_monitors
+import ctypes
 
 root = Tk()
 root.geometry("800x500")
@@ -28,17 +29,17 @@ my_canvas.create_image(0,0, image=new_bg, anchor="nw")
 
 my_canvas.create_text(400, 250, text="Welcome!", font=("Helvetica", 50), fill="white")
 
+
+
 if '<Configure>':
-    F = get_monitors()
+    user32 = ctypes.windll.user32
+    screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+    print(screensize)
 
-    G = Monitor[0]
-
-    K = int(a.width)
-    L = int(a.height)
-
-    resized_bg2 = bg1.resize((K, L), Image.ANTIALIAS)
-    new_bg2 = ImageTk.PhotoImage(resized_bg2)
-    my_canvas.create_image(0, 0, image=new_bg2, anchor="nw")
+    guuf = Image.open("Images/image of main window.png")
+    bxhdhgfx = guuf.resize((user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)), Image.ANTIALIAS)
+    bfcgufcu2 = ImageTk.PhotoImage(bxhdhgfx)
+    my_canvas.create_image(root, 0, 0, image=bfcgufcu2, anchor="nw")
 
     print('Hi')
 

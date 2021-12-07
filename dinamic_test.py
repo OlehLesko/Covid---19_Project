@@ -1,5 +1,7 @@
 import wx
 from win32api import GetSystemMetrics
+import wx.lib.stattext as ST
+
 
 w = GetSystemMetrics(0)
 h = GetSystemMetrics(1)
@@ -23,6 +25,8 @@ class Start(wx.Frame):
         self.img1 = wx.Image("Images/image of main window.png", wx.BITMAP_TYPE_ANY)
         self.m_bitmap3 = wx.StaticBitmap(self, id=wx.ID_ANY, bitmap=wx.Bitmap(self.img1), pos=wx.DefaultPosition,
                                          size=wx.DefaultSize, style=0, name=wx.StaticBitmapNameStr)
+        # st1 = ST.GenStaticText(self.m_bitmap3, -1, "This is an example of static text", (20, 10))
+
         box_sizer.Add(self.m_bitmap3, 1, wx.EXPAND, 0)
         self.Bind(wx.EVT_SIZE, self.resize)
         self.SetSizer(box_sizer)
@@ -41,7 +45,6 @@ class Start(wx.Frame):
             self.Bind(wx.EVT_BUTTON, self.asia, button)
 
     def europe(self, event):
-
         print('Hello1')
 
     def ukraine(self, event):
@@ -61,9 +64,9 @@ class Start(wx.Frame):
         if frame_h < 824:
             self.destroy_bitmap()
             self.bitmap()
-            self.create_button(self.m_bitmap3, 1, "Europe", (153, 86), (int(frame_h / 2 + 76), int(frame_h / 3)))
-            self.create_button(self.m_bitmap3, 2, "Ukraine", (153, 86), (int(frame_h / 2 + 76), int(frame_h / 3 + 200)))
-            self.create_button(self.m_bitmap3, 3, "Asia", (153, 86), (int(frame_h / 2 + 76), int(frame_h / 3 + 400)))
+            self.create_button(self.m_bitmap3, 1, "Europe", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3)))
+            self.create_button(self.m_bitmap3, 2, "Ukraine", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3 + 100)))
+            self.create_button(self.m_bitmap3, 3, "Asia", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3 + 200)))
 
         else:
             self.destroy_bitmap()

@@ -45,7 +45,6 @@ class Start(wx.Frame):
             self.Bind(wx.EVT_BUTTON, self.asia, button)
 
     def europe(self, event):
-
         print('Hello1')
 
     def ukraine(self, event):

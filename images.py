@@ -8,7 +8,7 @@ class MyFrame2(wx.Frame):
                           size=wx.Size(1366, 700), style=wx.DEFAULT_FRAME_STYLE | wx.TAB_TRAVERSAL)
         self.SetSizeHintsSz(wx.DefaultSize, wx.DefaultSize)
         bSizer11 = wx.BoxSizer(wx.HORIZONTAL)
-        self.img1 = wx.Image("image of main window.png", wx.BITMAP_TYPE_ANY)
+        self.img1 = wx.Image("2image.png", wx.BITMAP_TYPE_ANY)
 
         self.m_bitmap3 = wx.StaticBitmap(self, wx.ID_ANY, wx.BitmapFromImage(self.img1), wx.DefaultPosition,
                                          wx.DefaultSize, 0)
@@ -22,8 +22,11 @@ class MyFrame2(wx.Frame):
         self.button1 = wx.Button(
             self.m_bitmap3, label='Button1', size=(100, 100),
             pos=(100, 100))
-
         self.button1.Bind(wx.EVT_BUTTON, self.rdt)
+        self.font = wx.Font(80, wx.DEFAULT, wx.NORMAL, wx.NORMAL)
+        self.label = "Covid-19"
+        self.flashingText = wx.StaticText(self, label=self.label, size=(120, 30), pos=(200, 100))
+        self.flashingText.SetFont(self.font)
 
     def rdt(self, event):
         print('Hello')

@@ -19,14 +19,14 @@ class MyFrame2(wx.Frame):
         self.Layout()
         # self.Centre(wx.BOTH)
 
-        self.button1 = wx.Button(
-            self.m_bitmap3, label='Button1', size=(100, 100),
-            pos=(100, 100))
-        self.button1.Bind(wx.EVT_BUTTON, self.rdt)
-        self.font = wx.Font(80, wx.DEFAULT, wx.NORMAL, wx.NORMAL)
-        self.label = "Covid-19"
-        self.flashingText = wx.StaticText(self, label=self.label, size=(120, 30), pos=(200, 100))
-        self.flashingText.SetFont(self.font)
+        # self.button1 = wx.Button(
+        #     self.m_bitmap3, label='Button1', size=(100, 100),
+        #     pos=(100, 100))
+        # self.button1.Bind(wx.EVT_BUTTON, self.rdt)
+        # self.font = wx.Font(80, wx.DEFAULT, wx.NORMAL, wx.NORMAL)
+        # self.label = "Covid-19"
+        # self.flashingText = wx.StaticText(self, label=self.label, size=(120, 30), pos=(200, 100))
+        # self.flashingText.SetFont(self.font)
 
     def rdt(self, event):
         print('Hello')

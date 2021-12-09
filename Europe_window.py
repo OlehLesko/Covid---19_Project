@@ -2,6 +2,8 @@ from countrygroups import EUROPEAN_UNION as EU_country
 from tkinter import *
 import tkinter.ttk
 from covid.api import CovId19Data
+from PIL import Image as im
+from PIL import ImageTk as imtk
 from get_vaccinated_by_countries_EU import vaccinated
 from config_file import *
 import Start_App
@@ -45,11 +47,14 @@ def europe_function():
     Europe_window.resizable(width=False, height=False)
 
     canvas = Canvas(Europe_window,
-                    width=canvas_width,
-                    height=canvas_height)
+                    width=1920,
+                    height=1080)
+    fon_image = im.open("Images/Image_of_window_Ukraine, Europe, Asia.png")
+    resized_image = fon_image.resize((2548, 1176))
+    fon_photo = imtk.PhotoImage(resized_image)
 
-    photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
-    canvas.create_image(canvas_image_x, canvas_image_y, image=photo)
+    # transparent text_1
+    canvas.create_image(1200, 580, image=fon_photo)
     canvas.create_text(300, 180, text="Select a country:", fill="White",
                        font=('Arial', 53))
 
@@ -120,3 +125,6 @@ def europe_function():
     Field_Europe.place(x=835, y=100)
 
     Europe_window.mainloop()
+
+if __name__ == "__main__":
+    europe_function()

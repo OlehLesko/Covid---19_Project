@@ -3,6 +3,8 @@ from config_file import *
 from request_module import request
 from get_general_vaccinated_data_asia import total_vaccinated
 from tkinter import *
+from PIL import Image as im
+from PIL import ImageTk as imtk
 
 def asia_function():
     root = Tk()
@@ -14,11 +16,14 @@ def asia_function():
     h = root.winfo_screenheight()
 
     canvas = Canvas(root,
-                    width=w,
-                    height=h)
-    photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
+                    width=1920,
+                    height=1080)
+    fon_image = im.open("Images/Image_of_window_Ukraine, Europe, Asia.png")
+    resized_image = fon_image.resize((2548, 1176))
+    fon_photo = imtk.PhotoImage(resized_image)
 
-    canvas.create_image(370, 200, image=photo)
+    # transparent text_1
+    canvas.create_image(1200, 580, image=fon_photo)
     canvas.create_text(380, 200, text="The state of\ncovid-19 in Asia", fill="White", font=('Arial', 56))
     info_text = Text(root, width=34, height=15, bg='darkgray', font=(None, 15))
     info_text.place(x=860, y=150)
@@ -47,3 +52,6 @@ def asia_function():
     return_to_main.place(x=1, y=2)
 
     root.mainloop()
+
+if __name__ == "__main__":
+    asia_function()

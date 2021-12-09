@@ -1,6 +1,8 @@
 from config_file import *
 from get_vactinated_by_ukr_region import total_vaccinated_region_ukr
 from ukraine_regions_data import get_region_list
+from PIL import Image as im
+from PIL import ImageTk as imtk
 # from Europe_window import Europe_function
 import Start_App
 
@@ -40,10 +42,12 @@ def Ukraine_function():
     canvas = Canvas(Ukraine_window,
                     width=w,
                     height=h)
-    photo = PhotoImage(file='Images/Image_of_window_Ukraine, Europe, Asia.png')
+    fon_image = im.open("Images/Image_of_window_Ukraine, Europe, Asia.png")
+    resized_image = fon_image.resize((2548, 1176))
+    fon_photo = imtk.PhotoImage(resized_image)
 
     # transparent text_1
-    canvas.create_image(900, 300, image=photo)
+    canvas.create_image(1200, 580, image=fon_photo)
     canvas.create_text(130, 90, text="Region of Ukraine:", fill="White",
                        font=('Arial', 20))
 
@@ -102,3 +106,6 @@ def Ukraine_function():
     Field_Ukraine.place(x=400, y=90)
 
     Ukraine_window.mainloop()
+
+if __name__ == "__main__":
+    Ukraine_function()

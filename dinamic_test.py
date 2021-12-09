@@ -7,7 +7,7 @@ w = GetSystemMetrics(0)
 h = GetSystemMetrics(1)
 print("Width =", GetSystemMetrics(0))
 print("Height =", GetSystemMetrics(1))
-start_position_high_button = int(h / 2 - 86)
+start_position_high_button = int(h / 2 + 50)
 
 
 class Start(wx.Frame):
@@ -16,19 +16,22 @@ class Start(wx.Frame):
         self.m_bitmap3 = None
         self.img1 = None
         self.buttons = []
-        self.button = None
+        # self.button = None
         self.bitmap()
 
     def bitmap(self):
 
         box_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.img1 = wx.Image("Images/image of main window.png", wx.BITMAP_TYPE_ANY)
+        self.img1 = wx.Image("Images/Main_window_image.png", wx.BITMAP_TYPE_ANY)
         self.m_bitmap3 = wx.StaticBitmap(self, id=wx.ID_ANY, bitmap=wx.Bitmap(self.img1), pos=wx.DefaultPosition,
                                          size=wx.DefaultSize, style=0, name=wx.StaticBitmapNameStr)
-        # st1 = ST.GenStaticText(self.m_bitmap3, -1, "This is an example of static text", (20, 10))
+        self.create_button(self.m_bitmap3, 1, "Europe", (153, 86), (120, start_position_high_button))
+        self.create_button(self.m_bitmap3, 2, "Ukraine", (153, 86), (320, start_position_high_button))
+        self.create_button(self.m_bitmap3, 3, "Asia", (153, 86), (520, start_position_high_button))
 
         box_sizer.Add(self.m_bitmap3, 1, wx.EXPAND, 0)
         self.Bind(wx.EVT_SIZE, self.resize)
+        # print(wx.EVT_SIZE)
         self.SetSizer(box_sizer)
 
     def create_button(self, m_bimap3, id, label, size, pos):
@@ -54,30 +57,35 @@ class Start(wx.Frame):
         print('Hello3')
 
     def resize(self, event):
-        self.Layout()
+
+        # self.Layout()
         frame_size = self.GetSize()
-        print(f'frame_size={frame_size}')
-        frame_h = (frame_size[0] - 10)
-        frame_w = (frame_size[1] - 10)
-        img1 = self.img1.Scale(frame_h, frame_w)
-        print(frame_h)
-        if frame_h < 824:
-            self.destroy_bitmap()
-            self.bitmap()
-            self.create_button(self.m_bitmap3, 1, "Europe", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3)))
-            self.create_button(self.m_bitmap3, 2, "Ukraine", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3 + 100)))
-            self.create_button(self.m_bitmap3, 3, "Asia", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3 + 200)))
-
+        if frame_size[0] < 825 or frame_size[1] < 650:
+            event.Skip()
+            self.SetSize((825,650))
         else:
-            self.destroy_bitmap()
-            self.bitmap()
-            self.create_button(self.m_bitmap3, 1, "Europe", (153, 86), (120, start_position_high_button))
-            self.create_button(self.m_bitmap3, 2, "Ukraine", (153, 86), (320, start_position_high_button))
-            self.create_button(self.m_bitmap3, 3, "Asia", (153, 86), (520, start_position_high_button))
-        self.m_bitmap3.SetBitmap(wx.Bitmap(img1))
+            print(f'frame_size={frame_size}')
+            frame_h = (frame_size[0] - 10)
+            frame_w = (frame_size[1] - 10)
+            img1 = self.img1.Scale(frame_h, frame_w)
+        # print(frame_h)
+        # if frame_h < 824:
+        #     # self.destroy_bitmap()
+        #     self.bitmap()
+        #     self.create_button(self.m_bitmap3, 1, "Europe", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3)))
+        #     self.create_button(self.m_bitmap3, 2, "Ukraine", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3 + 100)))
+        #     self.create_button(self.m_bitmap3, 3, "Asia", (153, 86), (int(frame_h / 2 - 76), int(frame_h / 3 + 200)))
+        #
+        # else:
+        #     self.destroy_bitmap()
+        #     self.bitmap()
+        #     self.create_button(self.m_bitmap3, 1, "Europe", (153, 86), (120, start_position_high_button))
+        #     self.create_button(self.m_bitmap3, 2, "Ukraine", (153, 86), (320, start_position_high_button))
+        #     self.create_button(self.m_bitmap3, 3, "Asia", (153, 86), (520, start_position_high_button))
+            self.m_bitmap3.SetBitmap(wx.Bitmap(img1))
 
-        self.Refresh()
-        self.Layout()
+        # self.Refresh()
+        # self.Layout()
     def destroy_bitmap(self):
         self.m_bitmap3.Destroy()
 

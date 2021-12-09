@@ -2,23 +2,47 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image as im
 from PIL import ImageTk as imtk
+from screeninfo import get_monitors
 
-root = Tk()
-root.geometry("400x300")
+Monitor = get_monitors()
 
-image_1 = im.open("Images/image of main window.png")
-resized_image = image_1.resize((1670,800))
-photo = imtk.PhotoImage(resized_image)
+a = Monitor[0]
 
-my_label = Label(root, image=photo)
-my_label.pack(pady=0, padx=0)
+w = int(a.width)
+h = int(a.height)
 
-button_europe = Button(root,
-                       text='Europe',
-                       bg='White', fg='Black',
-                       font=('Arial', 20),
-                       width=11, height=2)
-button_europe.place(x=30, y=100)
+def create_general_window():
+    root = Tk()
+    image_1 = im.open("Images/image of main window.png")
+    resized_image = image_1.resize((2548,1176))
+    photo = imtk.PhotoImage(resized_image)
+
+    my_label = Label(root, image=photo)
+    my_label.pack(pady=0, padx=0)
+
+    button_europe = Button(root,
+                           text='Europe',
+                           bg='White', fg='Black',
+                           font=('Arial', 20),
+                           width=11, height=2)
+    button_europe.place(relx=0.30, rely=0.5)
 
 
-root.mainloop()
+    button_ukraine = Button(root,
+                            text='Ukraine',
+                            bg='White', fg='Black',
+                            font=('Arial', 20),
+                            width=11, height=2)
+    button_ukraine.place(relx=0.4, rely=0.2)
+
+    button_asia = Button(root,
+                         text='Asia',
+                         bg='White', fg='Black',
+                         font=('Arial', 20),
+                         width=11, height=2)
+    button_asia.place(relx=0.10, rely=0.20)
+
+    root.mainloop()
+
+if __name__ == "__main__":
+    create_general_window()

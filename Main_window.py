@@ -38,9 +38,9 @@ def create_general_window():
 
     photo = imtk.PhotoImage(resized_image)
     canvas.create_image(0, 0, anchor=NW, image=photo)
-
-    covid = Label(canvas, text='Covid-19', bg='#d7d5d8', font=(None, 80))
-    covid.place(relx=0.01, rely=0.3,)
+    # d7d5d8
+    covid = Label(canvas, text='Covid-19', bg='#d7d5d8', bd=0, width=8, height=1, font=(None, 82))
+    covid.place(relx=0.01, rely=0.25,)
 
     button_onl = Button(canvas, text='Online')
     button_onl.place(relx=0.001, rely=0.01)
@@ -49,7 +49,7 @@ def create_general_window():
     number.pack(anchor='e')
 
     find_text = Label(canvas, text="Find out the information:", bg='#d7d5d8', font=(None, 28))
-    find_text.place(relx=0.03, rely=0.6)
+    find_text.place(relx=0.035, rely=0.52)
 
     def euro_open():
         first_window.destroy()
@@ -59,7 +59,7 @@ def create_general_window():
                            text='Europe',
                            bg='White', fg='Black',
                             command=euro_open)
-    button_europe.pack(side=LEFT, padx=30, pady=40, anchor="s")
+    button_europe.pack(side=LEFT, padx=30, pady=80, anchor="s")
 
     def ukraine_open():
         first_window.destroy()
@@ -69,7 +69,7 @@ def create_general_window():
                             text='Ukraine',
                             bg='White', fg='Black',
                              command=ukraine_open)
-    button_ukraine.pack(side=LEFT, pady=40, anchor="s")
+    button_ukraine.pack(side=LEFT, pady=80, anchor="s")
 
     def asia_open():
         first_window.destroy()
@@ -79,22 +79,25 @@ def create_general_window():
                          text='Asia',
                          bg='White', fg='Black',
                         command=asia_open)
-    button_asia.pack(side=LEFT, padx=30, pady=40, anchor="s")
+    button_asia.pack(side=LEFT, padx=30, pady=80, anchor="s")
     def resize(e):
         size = e.width
         ysize = e.height
         print(size)
-        if size > 970:
+        if size > 960:
+            find_text.config(font=(None, 28))
             number.config(font=(None, 18))
             button_europe.config(width=12,height=2,font=(None,20))
             button_ukraine.config(width=12,height=2,font=(None,20))
             button_asia.config(width=12,height=2,font=(None,20))
-        elif size > 800:
+        elif size > 790:
+
             number.config(font=(None, 16))
             button_europe.config(width=10, height=2, font=(None, 19))
             button_ukraine.config(width=10, height=2, font=(None, 19))
             button_asia.config(width=10, height=2, font=(None, 19))
         else:
+            find_text.config(font=(None, 24))
             number.config(font=(None, 14))
             button_europe.config(width=8, height=2, font=(None, 18))
             button_ukraine.config(width=8, height=2, font=(None, 18))

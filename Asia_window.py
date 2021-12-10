@@ -1,4 +1,4 @@
-import Start_App
+import Main_window
 from config_file import *
 from request_module import request
 from get_general_vaccinated_data_asia import total_vaccinated

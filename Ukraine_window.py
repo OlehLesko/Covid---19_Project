@@ -4,7 +4,7 @@ from ukraine_regions_data import get_region_list
 from PIL import Image as im
 from PIL import ImageTk as imtk
 # from Europe_window import Europe_function
-import Start_App
+import Main_window
 
 # import request module
 from request_module import request

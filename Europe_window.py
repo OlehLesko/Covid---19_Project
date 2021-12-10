@@ -6,7 +6,7 @@ from PIL import Image as im
 from PIL import ImageTk as imtk
 from get_vaccinated_by_countries_EU import vaccinated
 from config_file import *
-import Start_App
+import Main_window
 
 def europe_function():
     api = CovId19Data(force=True)

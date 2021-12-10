@@ -58,7 +58,7 @@ def create_general_window():
     button_europe = Button(canvas,
                            text='Europe',
                            bg='White', fg='Black',
-                            command=euro_open)
+                            command=euro_open, width=12, height=2, font=(None,20))
     button_europe.pack(side=LEFT, padx=30, pady=80, anchor="s")
 
     def ukraine_open():
@@ -68,7 +68,7 @@ def create_general_window():
     button_ukraine = Button(canvas,
                             text='Ukraine',
                             bg='White', fg='Black',
-                             command=ukraine_open)
+                             command=ukraine_open, width=12, height=2, font=(None,20))
     button_ukraine.pack(side=LEFT, pady=80, anchor="s")
 
     def asia_open():
@@ -78,12 +78,11 @@ def create_general_window():
     button_asia = Button(canvas,
                          text='Asia',
                          bg='White', fg='Black',
-                        command=asia_open)
+                        command=asia_open, width=12, height=2, font=(None,20))
     button_asia.pack(side=LEFT, padx=30, pady=80, anchor="s")
     def resize(e):
         size = e.width
-        ysize = e.height
-        print(size)
+
         if size > 960:
             find_text.config(font=(None, 28))
             number.config(font=(None, 18))

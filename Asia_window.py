@@ -7,26 +7,34 @@ from PIL import Image as im
 from PIL import ImageTk as imtk
 
 def asia_function():
-    root = Tk()
-    root.state(first_window_size)
-    root.title('Asia')
-    root.iconbitmap('Images/icon.ico')
-    root.resizable(width=False, height=False)
-    w = root.winfo_screenwidth()
-    h = root.winfo_screenheight()
+    asia_window = Tk()
+    asia_window.state(first_window_size)
+    asia_window.title('Asia')
+    asia_window.iconbitmap('Images/icon.ico')
 
-    canvas = Canvas(root,
-                    width=1920,
-                    height=1080)
-    fon_image = im.open("Images/Image_of_window_Ukraine, Europe, Asia.png")
-    resized_image = fon_image.resize((2548, 1176))
-    fon_photo = imtk.PhotoImage(resized_image)
+    w = asia_window.winfo_screenwidth()
+    h = asia_window.winfo_screenheight()
 
-    # transparent text_1
-    canvas.create_image(1200, 580, image=fon_photo)
-    canvas.create_text(380, 200, text="The state of\ncovid-19 in Asia", fill="White", font=('Arial', 56))
-    info_text = Text(root, width=34, height=15, bg='darkgray', font=(None, 15))
-    info_text.place(x=860, y=150)
+    canvas = Canvas(asia_window,
+                    width=w,
+                    height=h)
+
+    canvas.pack(fill="both", expand=True)
+    asia_window.state("zoomed")
+    asia_window.title('ASIA')
+
+    image_1 = im.open("Images/Virus_E_U_A.png")
+
+    resized_image = image_1.resize((w, h), im.ANTIALIAS)
+
+    photo = imtk.PhotoImage(resized_image)
+    canvas.create_image(0, 0, anchor=NW, image=photo)
+
+    asia_text = Label(canvas, text="The state of\n       covid-19 in Asia", bg="#d7d5d8", font=('Arial', 56))
+    asia_text.place(relx=0, rely=0.15)
+
+    info_text = Text(asia_window, width=33, height=11, bg='#d7d5d8', font=(None, 20))
+    info_text.place(relx=0.18, rely=0.36)
     canvas.pack()
 
     headers = headers_asia
@@ -38,20 +46,19 @@ def asia_function():
     now_ill = f'Now ill: {html.find_all("td", class_="bg-total")[7].text}\n'
     total_vaccinated_people = f'Total vaccinated people: {total_vaccinated()}'
 
-    info_text.insert(1.0, f"\n{all_infected}\n\n {deaths} \n\n {recovered} \n\n {now_ill} \n\n {total_vaccinated_people}")
+    info_text.insert(1.0, f"\n{all_infected}\n\n {deaths} \n {recovered} \n {now_ill} \n {total_vaccinated_people}")
     info_text['state'] = 'disabled'
 
-
     def return_to_first_window():
-        root.destroy()
-        Start_App.create_general_window()
+        asia_window.destroy()
+        Main_window.create_general_window()
 
-
-    return_to_main = Button(root, text='<<',
+    return_to_main = Button(asia_window, text='<<',
                             font=('Arial', 14), width=5, height=1, command=return_to_first_window)
-    return_to_main.place(x=1, y=2)
+    return_to_main.place(x=2, y=2)
 
-    root.mainloop()
+    asia_window.mainloop()
+
 
 if __name__ == "__main__":
     asia_function()

@@ -7,6 +7,14 @@ from PIL import ImageTk as imtk
 from get_vaccinated_by_countries_EU import vaccinated
 from config_file import *
 import Main_window
+from screeninfo import get_monitors
+
+Monitor = get_monitors()
+
+a = Monitor[0]
+
+w = int(a.width)
+h = int(a.height)
 
 def europe_function():
     api = CovId19Data(force=True)
@@ -47,8 +55,8 @@ def europe_function():
     Europe_window.minsize(600, 400)
 
     canvas = Canvas(Europe_window,
-                    width=1920,
-                    height=1080)
+                    width=w,
+                    height=h)
     fon_image = im.open("Images/Virus_E_U_A.png")
     resized_image = fon_image.resize((2548, 1176))
     fon_photo = imtk.PhotoImage(resized_image)

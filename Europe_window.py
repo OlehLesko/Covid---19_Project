@@ -58,7 +58,7 @@ def europe_function():
                     width=w,
                     height=h)
     fon_image = im.open("Images/Virus_E_U_A.png")
-    resized_image = fon_image.resize((2548, 1176))
+    resized_image = fon_image.resize((w, h))
     fon_photo = imtk.PhotoImage(resized_image)
 
     # transparent text_1

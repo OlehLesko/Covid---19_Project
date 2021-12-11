@@ -4,13 +4,15 @@ from request_module import request
 from get_general_vaccinated_data_asia import total_vaccinated
 from tkinter import *
 from PIL import Image as im
-from PIL import ImageTk as imtk
+from PIL import ImageTk as imt
+
 
 def asia_function():
     asia_window = Tk()
     asia_window.state(first_window_size)
     asia_window.title('Asia')
     asia_window.iconbitmap('Images/icon.ico')
+    asia_window.minsize(440, 375)
 
     w = asia_window.winfo_screenwidth()
     h = asia_window.winfo_screenheight()
@@ -27,14 +29,14 @@ def asia_function():
 
     resized_image = image_1.resize((w, h), im.ANTIALIAS)
 
-    photo = imtk.PhotoImage(resized_image)
+    photo = imt.PhotoImage(resized_image)
     canvas.create_image(0, 0, anchor=NW, image=photo)
 
-    asia_text = Label(canvas, text="The state of\n       covid-19 in Asia", bg="#d7d5d8", font=('Arial', 56))
+    asia_text = Label(canvas, text="The state of\n       covid-19 in Asia", bg="#d7d5d8", font=('Arial', 54))
     asia_text.place(relx=0, rely=0.15)
 
-    info_text = Text(asia_window, width=33, height=11, bg='#d7d5d8', font=(None, 20))
-    info_text.place(relx=0.18, rely=0.36)
+    info_text = Text(asia_window, width=33, height=11, bg='#d7d5d8', relief=FLAT, font=(None, 20))
+    info_text.place(relx=0.6, rely=0.3)
     canvas.pack()
 
     headers = headers_asia
@@ -57,6 +59,47 @@ def asia_function():
                             font=('Arial', 14), width=5, height=1, command=return_to_first_window)
     return_to_main.place(x=2, y=2)
 
+    def resize(e):
+        size = e.width
+        h_size = e.height
+        print(size, h_size)
+
+        if size > 1200 and h_size > 545:
+            asia_text.config(font=('Arial', 54))
+            asia_text.place(relx=0, rely=0.15)
+
+            info_text.config(font=(None, 20))
+            info_text.place(relx=0.6, rely=0.3)
+
+        elif size > 1065 and h_size > 520:
+            asia_text.config(font=('Arial', 50))
+            asia_text.place(relx=0, rely=0.1)
+
+            info_text.config(font=(None, 19))
+            info_text.place(relx=0.6, rely=0.4)
+
+        elif size > 790 and h_size > 480:
+            asia_text.config(font=('Arial', 48))
+            asia_text.place(relx=0, rely=0.1)
+
+            info_text.config(font=(None, 18))
+            info_text.place(relx=0.44, rely=0.38)
+
+        elif size > 600 and h_size > 420:
+            asia_text.config(font=('Arial', 44))
+            asia_text.place(relx=0, rely=0.05)
+
+            info_text.config(font=(None, 16))
+            info_text.place(relx=0.35, rely=0.35)
+
+        else:
+            asia_text.config(font=('Arial', 32))
+            asia_text.place(relx=0, rely=0.025)
+
+            info_text.config(font=(None, 14))
+            info_text.place(relx=0.1, rely=0.3)
+
+    canvas.bind('<Configure>', resize)
     asia_window.mainloop()
 
 

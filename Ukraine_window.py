@@ -38,7 +38,7 @@ def ukraine_function():
     ukraine_window.state(first_window_size)
     ukraine_window.title('Covid-19 information')
     ukraine_window.iconbitmap('Images/icon.ico')
-    ukraine_window.minsize(550, 800)
+    ukraine_window.minsize(550, 700)
 
     # create canvas window
     canvas = Canvas(ukraine_window,
@@ -96,6 +96,8 @@ def ukraine_function():
     # we change dynamically our window
     def resize(e):
         size = e.width
+        print(f"width={e.width}")
+        print(f"height={e.height}")
         if size > 960:
             label_region_of_ukraine.config(font=('Arial', 36))
             field_ukraine.config(width=58, height=20)

@@ -41,13 +41,13 @@ def create_general_window():
     canvas.create_image(0, 0, anchor=NW, image=photo)
     # d7d5d8
     covid = Label(canvas, text='Covid-19', bg='#d7d5d8', bd=0, width=8, height=1, font=(None, 82))
-    covid.place(relx=0.01, rely=0.25,)
+    covid.place(relx=0.01, rely=0.25, )
 
     def site():
         webbrowser.open('https://liki24.com/uk/', new=2)
 
     button_ap = Button(canvas, text='Online pharmacy', bg="white", fg='black', font=(None, 14), command=site)
-    button_ap.place(x=w*1//100, y=h*1//100)
+    button_ap.place(x=w * 1 // 100, y=h * 1 // 100)
 
     number = Label(canvas, text="Contact center of the MOZ:\n 0 800 60 20 19", bg='#d7d5d8')
     number.pack(anchor='e')
@@ -66,7 +66,7 @@ def create_general_window():
 
     def ukraine_open():
         first_window.destroy()
-        Ukraine_window.Ukraine_function()
+        Ukraine_window.ukraine_function()
 
     button_ukraine = Button(canvas,
                             text='Ukraine',

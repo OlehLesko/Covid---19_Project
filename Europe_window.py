@@ -16,6 +16,7 @@ a = Monitor[0]
 w = int(a.width)
 h = int(a.height)
 
+
 def europe_function():
     api = CovId19Data(force=True)
 
@@ -38,13 +39,11 @@ def europe_function():
                 sorted_dic[elem] = api_all[elem]
         top_number += 1
 
-
     # dictionry of top-10 sorted country
     def country_from_sorted_list():
         for country in sorted_dic:
             top_10_europe.append(sorted_dic[country]["label"])
         return top_10_europe
-
 
     top_10 = country_from_sorted_list()
 
@@ -62,12 +61,11 @@ def europe_function():
     fon_photo = imtk.PhotoImage(resized_image)
 
     # transparent text_1
-    canvas.create_image(0, 0, anchor=NW,image=fon_photo)
+    canvas.create_image(0, 0, anchor=NW, image=fon_photo)
 
     txt_select_a_country = Label(canvas, text="Select a country:", bg="#d7d5d8", font=('Arial', 56))
     txt_select_a_country.place(relx=0, rely=0.2)
     canvas.pack()
-
 
     def show_result(event):
         Field_Europe.delete(1.0, END)
@@ -83,11 +81,10 @@ def europe_function():
             Field_Europe.insert(1.0, (f'Country: {label}\n'
                                       f'Last updated: {last_updated}\n \n'
                                       f'Confirmed: {confirmed}\n'
-    
+
                                       f'Recovered: {recovered}\n'
                                       f'Deaths: {deaths}\n \n'
                                       f'Total vaccinated: {total_vaccinated}\n'))
-
 
             if '<<ComboboxSelected>>':
                 Field_Europe.delete(1.0, END)
@@ -103,16 +100,17 @@ def europe_function():
 
                 Field_Europe.insert(1.0, (f'Country: {label_second}\n'
                                           f'Last updated: {last_updated_second}\n \n'
-                                          
+
                                           f'Confirmed: {confirmed_second}\n'
-    
+
                                           f'Recovered: {recovered_second}\n'
                                           f'Deaths: {deaths_second}\n \n'
                                           f'Total vaccinated: {total_vaccinated_second}\n'))
 
     fontExample = ('Courier', 17, 'bold')
     text_font = ('Arial', '20')
-    Combobox_Europe_second_window = tkinter.ttk.Combobox(Europe_window, values=top_10, exportselection=0, width=36, height=0,
+    Combobox_Europe_second_window = tkinter.ttk.Combobox(Europe_window, values=top_10, exportselection=0, width=36,
+                                                         height=0,
                                                          state='readonly', font=fontExample)
     Combobox_Europe_second_window.option_add('*TCombobox*Listbox.font', text_font)
     Combobox_Europe_second_window.set("Choose a country")
@@ -120,23 +118,21 @@ def europe_function():
     Combobox_Europe_second_window.place(relx=0.01, rely=0.35)
     Combobox_Europe_second_window.bind('<<ComboboxSelected>>', show_result)
 
-
     def return_to_first_window():
         Europe_window.destroy()
         Main_window.create_general_window()
-
 
     return_to_main = Button(Europe_window, text='<<',
                             font=('Arial', 14), width=5, height=1, command=return_to_first_window)
     return_to_main.place(x=1, y=2)
 
-    Field_Europe = Text(Europe_window, width=58, height=20, bg='White', fg='Black', font = ('Arial', 15))
+    Field_Europe = Text(Europe_window, width=58, height=20, bg='White', fg='Black', font=('Arial', 15))
     Field_Europe.place(relx=0.52, rely=0.1)
 
     def resize(e):
         size = e.width
 
-        if size > 960 :
+        if size > 960:
             txt_select_a_country.config(font=('Arial', 36))
             Field_Europe.config(width=58, height=20)
             Field_Europe.place(relx=0.52, rely=0.1)
@@ -145,7 +141,7 @@ def europe_function():
 
 
 
-        elif size > 790 :
+        elif size > 790:
             txt_select_a_country.config(font=(None, 30))
             Field_Europe.config(width=38, height=10)
             Field_Europe.place(relx=0.01, rely=0.4)
@@ -157,12 +153,9 @@ def europe_function():
             Field_Europe.config(width=37, height=12)
             Field_Europe.place(relx=0.01, rely=0.45)
 
-
-
-
-
     canvas.bind('<Configure>', resize)
     Europe_window.mainloop()
+
 
 if __name__ == "__main__":
     europe_function()

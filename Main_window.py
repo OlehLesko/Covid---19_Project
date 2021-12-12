@@ -1,5 +1,5 @@
 from PIL import Image as im
-from PIL import ImageTk as imtk
+from PIL import ImageTk as imt
 
 from tkinter import *
 from screeninfo import get_monitors
@@ -7,6 +7,7 @@ import config_file
 import Europe_window
 import Ukraine_window
 import Asia_window
+import webbrowser
 
 Monitor = get_monitors()
 
@@ -36,14 +37,17 @@ def create_general_window():
 
     resized_image = image_1.resize((w, h), im.ANTIALIAS)
 
-    photo = imtk.PhotoImage(resized_image)
+    photo = imt.PhotoImage(resized_image)
     canvas.create_image(0, 0, anchor=NW, image=photo)
     # d7d5d8
     covid = Label(canvas, text='Covid-19', bg='#d7d5d8', bd=0, width=8, height=1, font=(None, 82))
     covid.place(relx=0.01, rely=0.25,)
 
-    button_onl = Button(canvas, text='Online')
-    button_onl.place(relx=0.001, rely=0.01)
+    def site():
+        webbrowser.open('https://liki24.com/uk/', new=2)
+
+    button_ap = Button(canvas, text='Online pharmacy', bg="white", fg='black', font=(None, 14), command=site)
+    button_ap.place(x=w*1//100, y=h*1//100)
 
     number = Label(canvas, text="Contact center of the MOZ:\n 0 800 60 20 19", bg='#d7d5d8')
     number.pack(anchor='e')
@@ -57,8 +61,7 @@ def create_general_window():
 
     button_europe = Button(canvas,
                            text='Europe',
-                           bg='White', fg='Black',
-                            command=euro_open, width=12, height=2, font=(None,20))
+                           bg='White', fg='Black', command=euro_open, width=12, height=2, font=(None, 20))
     button_europe.pack(side=LEFT, padx=30, pady=80, anchor="s")
 
     def ukraine_open():
@@ -67,8 +70,7 @@ def create_general_window():
 
     button_ukraine = Button(canvas,
                             text='Ukraine',
-                            bg='White', fg='Black',
-                             command=ukraine_open, width=12, height=2, font=(None,20))
+                            bg='White', fg='Black', command=ukraine_open, width=12, height=2, font=(None, 20))
     button_ukraine.pack(side=LEFT, pady=80, anchor="s")
 
     def asia_open():
@@ -77,18 +79,18 @@ def create_general_window():
 
     button_asia = Button(canvas,
                          text='Asia',
-                         bg='White', fg='Black',
-                        command=asia_open, width=12, height=2, font=(None,20))
+                         bg='White', fg='Black', command=asia_open, width=12, height=2, font=(None, 20))
     button_asia.pack(side=LEFT, padx=30, pady=80, anchor="s")
+
     def resize(e):
         size = e.width
 
         if size > 960:
             find_text.config(font=(None, 28))
             number.config(font=(None, 18))
-            button_europe.config(width=12,height=2,font=(None,20))
-            button_ukraine.config(width=12,height=2,font=(None,20))
-            button_asia.config(width=12,height=2,font=(None,20))
+            button_europe.config(width=12, height=2, font=(None, 20))
+            button_ukraine.config(width=12, height=2, font=(None, 20))
+            button_asia.config(width=12, height=2, font=(None, 20))
         elif size > 790:
 
             number.config(font=(None, 16))

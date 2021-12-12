@@ -127,7 +127,7 @@ def europe_function():
 
 
     return_to_main = Button(Europe_window, text='<<',
-                            font=('Arial', 14), width=7, height=1, command=return_to_first_window)
+                            font=('Arial', 14), width=5, height=1, command=return_to_first_window)
     return_to_main.place(x=1, y=2)
 
     Field_Europe = Text(Europe_window, width=58, height=20, bg='White', fg='Black', font = ('Arial', 15))

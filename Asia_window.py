@@ -48,7 +48,7 @@ def asia_function():
     now_ill = f'Now ill: {html.find_all("td", class_="bg-total")[7].text}\n'
     total_vaccinated_people = f'Total vaccinated people: {total_vaccinated()}'
 
-    info_text.insert(1.0, f"\n{all_infected}\n\n {deaths} \n {recovered} \n {now_ill} \n {total_vaccinated_people}")
+    info_text.insert(1.0, f"\n{all_infected}\n {deaths} \n {recovered} \n {now_ill} \n {total_vaccinated_people}")
     info_text['state'] = 'disabled'
 
     def return_to_first_window():

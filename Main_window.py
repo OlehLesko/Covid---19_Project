@@ -46,10 +46,10 @@ def create_general_window():
     def site():
         webbrowser.open('https://liki24.com/uk/', new=2)
 
-    button_ap = Button(canvas, text='Online pharmacy', bg="white", fg='black', font=(None, 14), command=site)
-    button_ap.place(x=w * 1 // 100, y=h * 1 // 100)
+    button_ap = Button(canvas, text='Online\n      pharmacy', bg="#d7d5d8", relief=GROOVE, fg='black', font=(None, 16), command=site)
+    button_ap.place(relx=0.62, rely=0)
 
-    number = Label(canvas, text="Contact center of the MOZ:\n 0 800 60 20 19", bg='#d7d5d8')
+    number = Label(canvas, text="Contact center of the MOZ:\n 0 800 60 20 19", bg='#d7d5d8', font=(None, 20))
     number.pack(anchor='e')
 
     find_text = Label(canvas, text="Find out the information:", bg='#d7d5d8', font=(None, 28))
@@ -84,20 +84,34 @@ def create_general_window():
 
     def resize(e):
         size = e.width
+        print(size)
 
-        if size > 960:
+        if size > 1200:
+            button_ap.config(font=(None, 17))
+            button_ap.place(relx=0.62, rely=0)
+
+        elif size > 960:
+            button_ap.config(font=(None, 15))
+            button_ap.place(relx=0.54, rely=0)
+
             find_text.config(font=(None, 28))
             number.config(font=(None, 18))
+
             button_europe.config(width=12, height=2, font=(None, 20))
             button_ukraine.config(width=12, height=2, font=(None, 20))
             button_asia.config(width=12, height=2, font=(None, 20))
         elif size > 790:
+            button_ap.config(font=(None, 14))
+            button_ap.place(relx=0.45, rely=0)
 
             number.config(font=(None, 16))
             button_europe.config(width=10, height=2, font=(None, 19))
             button_ukraine.config(width=10, height=2, font=(None, 19))
             button_asia.config(width=10, height=2, font=(None, 19))
         else:
+            button_ap.config(font=(None, 13))
+            button_ap.place(relx=0.3, rely=0)
+
             find_text.config(font=(None, 24))
             number.config(font=(None, 14))
             button_europe.config(width=8, height=2, font=(None, 18))

@@ -1,6 +1,5 @@
 from PIL import Image as im
 from PIL import ImageTk as imt
-
 from tkinter import *
 from screeninfo import get_monitors
 import config_file
@@ -10,15 +9,12 @@ import Asia_window
 import webbrowser
 
 Monitor = get_monitors()
-
 a = Monitor[0]
-
 w = int(a.width)
 h = int(a.height)
 
 image_width = int(w / 100 * 27)
 image_height = int(h / 100 * 46)
-
 
 def create_general_window():
     first_window = Tk()
@@ -26,8 +22,7 @@ def create_general_window():
     first_window.minsize(500, 450)
 
     canvas = Canvas(first_window,
-                    width=w,
-                    height=h)
+                    width=w,height=h)
 
     canvas.pack(fill="both", expand=True)
     first_window.state("zoomed")
@@ -46,10 +41,11 @@ def create_general_window():
     def site():
         webbrowser.open('https://liki24.com/uk/', new=2)
 
-    button_ap = Button(canvas, text='Online\n      pharmacy', bg="#d7d5d8", relief=GROOVE, fg='black', font=(None, 16), command=site)
+    button_ap = Button(canvas, text='Online\n      pharmacy', bg="#d7d5d8", relief=GROOVE, fg='black', font=(None, 16),
+                       command=site)
     button_ap.place(relx=0.62, rely=0)
 
-    number = Label(canvas, text="Contact center of the MOZ:\n 0 800 60 20 19", bg='#d7d5d8', font=(None, 20))
+    number = Label(canvas, text="Contact center of the MOZ:\n 0 800 60 20 19", bg='#d7d5d8', font=(None, 18))
     number.pack(anchor='e')
 
     find_text = Label(canvas, text="Find out the information:", bg='#d7d5d8', font=(None, 28))
@@ -84,13 +80,15 @@ def create_general_window():
 
     def resize(e):
         size = e.width
-        print(size)
+
 
         if size > 1200:
+            covid.config(font=(None, 82))
             button_ap.config(font=(None, 17))
             button_ap.place(relx=0.62, rely=0)
 
         elif size > 960:
+            covid.config(font=(None, 80))
             button_ap.config(font=(None, 15))
             button_ap.place(relx=0.54, rely=0)
 
@@ -101,6 +99,7 @@ def create_general_window():
             button_ukraine.config(width=12, height=2, font=(None, 20))
             button_asia.config(width=12, height=2, font=(None, 20))
         elif size > 790:
+            covid.config(font=(None, 76))
             button_ap.config(font=(None, 14))
             button_ap.place(relx=0.45, rely=0)
 
@@ -109,6 +108,7 @@ def create_general_window():
             button_ukraine.config(width=10, height=2, font=(None, 19))
             button_asia.config(width=10, height=2, font=(None, 19))
         else:
+            covid.config(font=(None, 72))
             button_ap.config(font=(None, 13))
             button_ap.place(relx=0.3, rely=0)
 
@@ -119,9 +119,7 @@ def create_general_window():
             button_asia.config(width=8, height=2, font=(None, 18))
 
     canvas.bind('<Configure>', resize)
-
     first_window.mainloop()
-
 
 if __name__ == "__main__":
     create_general_window()

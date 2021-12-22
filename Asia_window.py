@@ -62,7 +62,7 @@ def asia_function():
     def resize(e):
         size = e.width
         h_size = e.height
-        print(size, h_size)
+
 
         if size > 1200 and h_size > 545:
             asia_text.config(font=('Arial', 54))

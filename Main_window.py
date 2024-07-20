@@ -30,6 +30,7 @@ def create_general_window():
 
     image_1 = im.open("Images/Virus_Main.png")
 
+
     resized_image = image_1.resize((w, h), im.LANCZOS)
 
     photo = imt.PhotoImage(resized_image)

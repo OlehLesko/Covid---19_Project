@@ -27,7 +27,7 @@ def asia_function():
 
     image_1 = im.open("Images/Virus_E_U_A.png")
 
-    resized_image = image_1.resize((w, h), im.ANTIALIAS)
+    resized_image = image_1.resize((w, h), im.LANCZOS)
 
     photo = imt.PhotoImage(resized_image)
     canvas.create_image(0, 0, anchor=NW, image=photo)
@@ -42,7 +42,7 @@ def asia_function():
     headers = headers_asia
     html = request(url_asia, headers)
 
-    all_infected = f' Infected: {html.find("td", class_="bg-total larger").text}\n'
+    all_infected = f' Infected: {html.find("td", class_="bg-total larger")}\n'
     deaths = f'Deaths: {html.find_all("td", class_="bg-total")[3].text}\n'
     recovered = f'Recovered: {html.find_all("td", class_="bg-total")[5].text}\n'
     now_ill = f'Now ill: {html.find_all("td", class_="bg-total")[7].text}\n'

@@ -27,7 +27,6 @@ def ukraine_function():
     ukraine_regions = get_region_list()
     for element in ukraine_regions:
         translate_elements.append(translit(element))
-
     period_of_time = html.find("table", class_="line").find("caption").text
     period_of_time = GoogleTranslator(source='auto', target='en').translate(period_of_time)
 
@@ -63,7 +62,8 @@ def ukraine_function():
         for i in all_info:
             if i.string == selected_region:
                 times = period_of_time
-                all_infected = i.parent.find("td", class_="blank larger").text
+
+                all_infected = i.parent.find("td", class_="blank larger")
                 all_deaths = i.parent.find_all("td", class_="blank")[2].text
                 all_recovered = i.parent.find_all("td", class_="blank")[4].text
                 all_now_ill = i.parent.find_all("td", class_="blank")[6].text

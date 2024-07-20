@@ -32,7 +32,6 @@ def create_general_window():
 
     resized_image = image_1.resize((w, h), im.LANCZOS)
 
-
     photo = imt.PhotoImage(resized_image)
     canvas.create_image(0, 0, anchor=NW, image=photo)
     # d7d5d8
